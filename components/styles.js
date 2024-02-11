@@ -4,11 +4,15 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 
     gradient: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
         flex: 1,
       },
       container: {
         flex: 1,
-        backgroundColor: '#7D3C98', 
       },
       keyboardView: {
         flex: 1,
@@ -26,7 +30,7 @@ export default StyleSheet.create({
         color: '#FFF',
         alignItems: 'center',
         margin: 20,
-        marginLeft: 75
+        marginLeft: 110
       },
       loginTitle:{
         fontSize: 24,

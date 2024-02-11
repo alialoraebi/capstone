@@ -18,7 +18,6 @@ const LoginScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView behavior="padding" style={styles.keyboardView}>
-        <LinearGradient colors={['#7D3C98', '#FFFFFF']} style={styles.gradient}>
           <Text style={styles.title}>AI CALL ASSIST</Text>
           <View style={styles.loginContainer}>
             <Text style={styles.loginTitle}>LOG IN</Text>
@@ -51,7 +50,6 @@ const LoginScreen = () => {
               </TouchableOpacity>
             </View>
           </View>
-        </LinearGradient>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
