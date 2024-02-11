@@ -1,6 +1,5 @@
 
 import React, {useState} from 'react';
-import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 
 import {
@@ -18,7 +17,7 @@ const LoginScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView behavior="padding" style={styles.keyboardView}>
-          <Text style={styles.title}>AI CALL ASSIST</Text>
+          <Text style={styles.title}>AI Call Assist</Text>
           <View style={styles.loginContainer}>
             <Text style={styles.loginTitle}>LOG IN</Text>
             <TextInput
