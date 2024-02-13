@@ -1,0 +1,6 @@
+//to connect the server
+cd backend 
+node server.js 
+
+//to run the main app
+npm start

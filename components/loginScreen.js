@@ -1,22 +1,36 @@
-
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { View, TextInput, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
-
-import {
-  SafeAreaView,
-  KeyboardAvoidingView,
-  View,
-  TextInput,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
-
 const LoginScreen = () => {
-  const [rememberMe, setRememberMe] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.message); // Display success message
+      } else {
+        const error = await response.text();
+        console.error(error); // Display error message
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView behavior="padding" style={styles.keyboardView}>
+    <View style={styles.gradient}> {/* Apply gradient style */}
+      <View style={styles.container}>
+        <View style={styles.keyboardView}>
           <Text style={styles.title}>AI CALL ASSIST</Text>
           <View style={styles.loginContainer}>
             <Text style={styles.loginTitle}>LOG IN</Text>
@@ -24,23 +38,26 @@ const LoginScreen = () => {
               placeholder="Username"
               style={styles.input}
               placeholderTextColor="#FFF9"
+              value={username}
+              onChangeText={setUsername}
             />
             <TextInput
               placeholder="Password"
               style={styles.input}
               placeholderTextColor="#FFF9"
               secureTextEntry
+              value={password}
+              onChangeText={setPassword}
             />
-            <TouchableOpacity style={styles.loginButton}>
+            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
               <Text style={styles.loginButtonText}>LOG IN</Text>
             </TouchableOpacity>
             <View style={styles.optionsContainer}>
               <TouchableOpacity
                 style={styles.checkboxContainer}
-                onPress={() => setRememberMe(!rememberMe)}
-              >
+                onPress={() => console.log('Remember me')}>
                 <View style={styles.checkbox}>
-                  <Text style={styles.checkboxText}>{rememberMe ? '✓' : ''}</Text>
+                  <Text style={styles.checkboxText}>✓</Text>
                 </View>
                 <Text style={styles.rememberMeText}>Remember Me</Text>
               </TouchableOpacity>
@@ -49,8 +66,9 @@ const LoginScreen = () => {
               </TouchableOpacity>
             </View>
           </View>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+        </View>
+      </View>
+    </View>
   );
 };
 
