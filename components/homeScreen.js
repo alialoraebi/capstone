@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import styles from './styles';
+
 //import { FontAwesome, MaterialIcons, Ionicons } from '@expo/vector-icons'; // Make sure you have these icons installed
 
 
@@ -65,75 +66,4 @@ const HomeScreen = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-    menuContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        width: '100%',
-        marginBottom: 20,
-    },
-    menuButton: {
-        backgroundColor: '#8E44AD', 
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 5,
-        marginHorizontal: 5, 
-      },
-    menuText: {
-        color: '#FFF',
-        fontSize: 16,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-  container: {
-    flexGrow: 1,
-    backgroundColor: '#7D3C98', // Set your desired background color
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  headerContainer: {
-    marginTop: 50,
-  },
-  headerTitle: {
-    textAlign: 'center',
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#FFF',
-    marginBottom: 40,
-  },
-  statsContainer: {
-    alignSelf: 'stretch',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    flexWrap: 'wrap',
-    marginTop: 20,
-  },
-  statsBox: {
-    backgroundColor: '#8E44AD', // Adjust the color as needed
-    borderRadius: 10,
-    padding: 20,
-    marginBottom: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '40%',
-  },
-  statsNumber: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#FFF',
-  },
-  statsText: {
-    fontSize: 18,
-    color: '#FFF',
-    marginTop: 5,
-  },
-  socialMediaContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '80%',
-    marginBottom: 40,
-  },
-});
-
 export default HomeScreen;

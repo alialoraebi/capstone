@@ -1,26 +1,26 @@
-// import React from 'react';
-// import LoginScreen from './components/loginScreen.js'; 
-
-// const App = () => {
-//   return <LoginScreen />;
-// };
-
-// export default App;
-
-import React, { useState } from 'react';
-import LoginScreen from './components/loginScreen';
-import HomeScreen from './components/homeScreen'; // Make sure you import the HomeScreen
+import React, { useState } from 'react'; // Import useState for managing state
+import { LinearGradient } from 'expo-linear-gradient'; // Import LinearGradient
+import LoginScreen from './components/loginScreen'; // Adjust the path as necessary
+import HomeScreen from './components/homeScreen'; // Assuming you have a HomeScreen component
+import styles from './components/styles'; // Assuming styles is correctly set up for gradient and other needs
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
-    // You would typically validate login details before setting this to true
+    // Logic to validate login details before setting isLoggedIn to true
     setIsLoggedIn(true);
   };
 
-  return isLoggedIn ? <HomeScreen /> : <LoginScreen onLogin={handleLogin} />;
+  return (
+    <LinearGradient colors={['#7D3C98', '#7D3C98', '#FFFFFF']} style={styles.gradient}>
+      {isLoggedIn ? (
+        <HomeScreen />
+      ) : (
+        <LoginScreen onLogin={handleLogin} />
+      )}
+    </LinearGradient>
+  );
 };
 
 export default App;
-
