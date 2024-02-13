@@ -1,25 +1,36 @@
-import React, { useState } from 'react'; // Import useState for managing state
-import { LinearGradient } from 'expo-linear-gradient'; // Import LinearGradient
-import LoginScreen from './components/loginScreen'; // Adjust the path as necessary
-import HomeScreen from './components/homeScreen'; // Assuming you have a HomeScreen component
-import styles from './components/styles'; // Assuming styles is correctly set up for gradient and other needs
+// App.js
+import React, { useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { LinearGradient } from 'expo-linear-gradient';
+import LoginScreen from './components/loginScreen';
+import HomeScreen from './components/homeScreen';
+import AboutScreen from './components/aboutScreen'; // Make sure to create this component
+import styles from './components/styles';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
-    // Logic to validate login details before setting isLoggedIn to true
     setIsLoggedIn(true);
   };
 
   return (
-    <LinearGradient colors={['#7D3C98', '#7D3C98', '#FFFFFF']} style={styles.gradient}>
-      {isLoggedIn ? (
-        <HomeScreen />
-      ) : (
-        <LoginScreen onLogin={handleLogin} />
-      )}
-    </LinearGradient>
+    <NavigationContainer>
+      <LinearGradient colors={['#7D3C98', '#7D3C98', '#FFFFFF']} style={styles.gradient}>
+        {isLoggedIn ? (
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="About" component={AboutScreen} />
+            {/* Add other screens here as needed */}
+          </Stack.Navigator>
+        ) : (
+          <LoginScreen onLogin={handleLogin} />
+        )}
+      </LinearGradient>
+    </NavigationContainer>
   );
 };
 

@@ -1,12 +1,16 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 
 //import { FontAwesome, MaterialIcons, Ionicons } from '@expo/vector-icons'; // Make sure you have these icons installed
 
 
-
 const HomeScreen = () => {
+    const navigation = useNavigation();
+
+
     const handleHomePress = () => {
         console.log('Home button pressed');
         // Here you would navigate to the Home screen or refresh the home data
@@ -23,8 +27,8 @@ const HomeScreen = () => {
       };
       
       const handleContactUsPress = () => {
-          console.log('Contact Us button pressed');
-      };
+          navigation.navigate('About');
+      }; 
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -40,7 +44,7 @@ const HomeScreen = () => {
           <TouchableOpacity style={styles.menuButton}>
             <Text style={styles.menuText}>Settings</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuButton}>
+          <TouchableOpacity style={styles.menuButton} onPress={handleContactUsPress}>
             <Text style={styles.menuText}>Contact Us</Text>
           </TouchableOpacity>
         </View>
