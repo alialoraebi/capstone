@@ -6,10 +6,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB database
-const DB_HOST = ""
-const DB_USER = ""
-const DB_PASSWORD = ""
-const DB_NAME = ""
+const DB_HOST = "cluster0.qggx7lx.mongodb.net"
+const DB_USER = "dbking"
+const DB_PASSWORD = "rERUc3eitWewqslM"
+const DB_NAME = "capstone"
 const DB_CONNECTION_STRING = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority` 
 mongoose.connect(DB_CONNECTION_STRING, {
   useNewUrlParser: true,

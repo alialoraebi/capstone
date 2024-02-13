@@ -10,8 +10,23 @@ import {
   StyleSheet,
 } from 'react-native';
 
-const LoginScreen = () => {
+const LoginScreen = ({ onLogin }) => { // Assume onLogin is passed from the parent component
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+
+  // Replace 'user' and 'pass' with your desired login credentials
+  const USER_CREDENTIALS = { user: 'ADMIN', pass: 'PASSWORD' };
+
+  const handleLogin = () => {
+    if (username === USER_CREDENTIALS.user && password === USER_CREDENTIALS.pass) {
+      // Implement what should happen after successful login
+      onLogin(); // This function would typically be passed down from the parent component
+    } else {
+      // Handle login failure (e.g., show an error message)
+      alert('Incorrect username or password!');
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -24,14 +39,18 @@ const LoginScreen = () => {
               placeholder="Username"
               style={styles.input}
               placeholderTextColor="#FFF9"
+              value={username}
+              onChangeText={setUsername} // Updates the username state on change
             />
             <TextInput
               placeholder="Password"
               style={styles.input}
               placeholderTextColor="#FFF9"
               secureTextEntry
+              value={password}
+              onChangeText={setPassword} // Updates the password state on change
             />
-            <TouchableOpacity style={styles.loginButton}>
+            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
               <Text style={styles.loginButtonText}>LOG IN</Text>
             </TouchableOpacity>
             <View style={styles.optionsContainer}>
