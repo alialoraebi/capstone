@@ -35,6 +35,4 @@ const AboutScreen = (props) => {
   );
 };
 
-
-
 export default withGradient(AboutScreen);
