@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
+import { useRoute } from '@react-navigation/native';
+import withGradient from './gradient';
 import styles from './styles';
+
 
 import {
   SafeAreaView,
@@ -10,7 +13,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const LoginScreen = ({ onLogin }) => { // Assume onLogin is passed from the parent component
+const LoginScreen = (props) => {
+  const route = useRoute();
+  const onLogin = route.params?.onLogin;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
@@ -21,7 +26,7 @@ const LoginScreen = ({ onLogin }) => { // Assume onLogin is passed from the pare
   const handleLogin = () => {
     if (username === USER_CREDENTIALS.user && password === USER_CREDENTIALS.pass) {
       // Implement what should happen after successful login
-      onLogin(); // This function would typically be passed down from the parent component
+      onLogin(); 
     } else {
       // Handle login failure (e.g., show an error message)
       alert('Incorrect username or password!');
@@ -31,7 +36,7 @@ const LoginScreen = ({ onLogin }) => { // Assume onLogin is passed from the pare
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView behavior="padding" style={styles.keyboardView}>
-          <Text style={styles.title}>       AI CALL ASSIST</Text>
+          <Text style={styles.title}>AI CALL ASSIST</Text>
           <View style={styles.loginContainer}>
             <Text style={styles.loginTitle}>LOG IN</Text>
             <TextInput
@@ -72,4 +77,4 @@ const LoginScreen = ({ onLogin }) => { // Assume onLogin is passed from the pare
   );
 };
 
-export default LoginScreen;
+export default withGradient(LoginScreen);

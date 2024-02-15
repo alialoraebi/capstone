@@ -1,11 +1,12 @@
-// App.js
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ImageBackground } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import MyTabs from './components/tabNavigator';
 import LoginScreen from './components/loginScreen';
 import HomeScreen from './components/homeScreen';
-import AboutScreen from './components/aboutScreen'; // Make sure to create this component
+import AboutScreen from './components/aboutScreen'; 
 import styles from './components/styles';
 
 const Stack = createNativeStackNavigator();
@@ -18,19 +19,19 @@ const App = () => {
   };
 
   return (
+    <LinearGradient colors={['#7D3C98', '#7D3C98', '#FFFFFF']} style={styles.gradient}>
     <NavigationContainer>
-      <LinearGradient colors={['#7D3C98', '#7D3C98', '#FFFFFF']} style={styles.gradient}>
-        {isLoggedIn ? (
+      {isLoggedIn ? (
+        <MyTabs/>
+      ) : (
           <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="About" component={AboutScreen} />
-            {/* Add other screens here as needed */}
+            <Stack.Screen name="Login" component={LoginScreen} initialParams={{ onLogin: handleLogin }} options={{ headerShown: false }} />
+            <Stack.Screen name="Home" component={HomeScreen}/>
+            <Stack.Screen name="About" component={AboutScreen}/>
           </Stack.Navigator>
-        ) : (
-          <LoginScreen onLogin={handleLogin} />
-        )}
-      </LinearGradient>
+      )}
     </NavigationContainer>
+    </LinearGradient>
   );
 };
 

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -8,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 // Connect to MongoDB database
 const DB_HOST = "cluster0.qggx7lx.mongodb.net"
 const DB_USER = "dbking"
-const DB_PASSWORD = "rERUc3eitWewqslM"
+const DB_PASSWORD = process.env.PASSWORD
 const DB_NAME = "capstone"
 const DB_CONNECTION_STRING = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority` 
 mongoose.connect(DB_CONNECTION_STRING, {
@@ -32,7 +33,7 @@ const User = mongoose.model('User', userSchema);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Create a user endpoint (for testing purposes)
+// Create a user endpoint (for user creation pusposes only, not for app use)
 app.post('/api/signup', async (req, res) => {
   const { username, password } = req.body;
 

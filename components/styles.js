@@ -2,18 +2,16 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-
     gradient: {
         position: 'absolute',
         top: 0,
         bottom: 0,
         left: 0,
         right: 0,
+    },
+    container: {
         flex: 1,
-      },
-      container: {
-        flex: 1,
-      },
+    },
       keyboardView: {
         flex: 1,
       },
@@ -25,12 +23,11 @@ export default StyleSheet.create({
         alignItems: 'center',
       },
       title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#FFF',
-        alignItems: 'center',
-        margin: 20,
-        marginLeft: 110
+        textAlign: 'center',
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: '#FFF',
+      margin: 40,
       },
       loginTitle:{
         fontSize: 24,
@@ -114,21 +111,15 @@ export default StyleSheet.create({
         justifyContent: 'center',
       },
       headerContainer: {
-        marginTop: 50,
-      },
-      headerTitle: {
-        textAlign: 'center',
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#FFF',
-        marginBottom: 40,
+        marginTop: 10,
+        backgroundColor: '#7D3C98', // Adjust the color as needed
       },
       statsContainer: {
         alignSelf: 'stretch',
         flexDirection: 'row',
         justifyContent: 'space-around',
         flexWrap: 'wrap',
-        marginTop: 20,
+        marginTop: 10,
       },
       statsBox: {
         backgroundColor: '#8E44AD', // Adjust the color as needed
@@ -155,6 +146,43 @@ export default StyleSheet.create({
         width: '80%',
         marginBottom: 40,
       },
+      aboutScreen: {
+        container: {
+            flex: 1,
+            padding: 20,
+            backgroundColor: '#FFFFFF',
+        },
+        header: {
+            alignItems: 'center',
+            marginBottom: 20,
+        },
+        headerTitle: {
+            fontSize: 24,
+            fontWeight: 'bold',
+            color: '#000',
+        },
+        contentContainer: {
+            marginTop: 20,
+        },
+        title: {
+            fontSize: 24,
+            fontWeight: 'bold',
+            color: '#000',
+            marginBottom: 10,
+        },
+        subtitle: {
+            fontSize: 20,
+            fontWeight: 'bold',
+            color: '#000',
+            marginTop: 20,
+            marginBottom: 10,
+        },
+        paragraph: {
+            fontSize: 16,
+            color: '#000',
+            lineHeight: 24,
+        },
+    },
 //   loginScreen: {
 //     // ... your styles for login screen
 //   },
@@ -163,9 +191,6 @@ export default StyleSheet.create({
 //   },
 //   settingsScreen: {
 //     // ... your styles for settings screen
-//   },
-//   aboutScreen: {
-//     // ... your styles for about screen
 //   },
 //   faqScreen: {
 //     // ... your styles for FAQ screen

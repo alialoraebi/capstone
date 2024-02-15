@@ -1,10 +1,12 @@
 // AboutScreen.js
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
+import withGradient from './gradient';
+import styles from './styles';
 
-const AboutScreen = () => {
+const AboutScreen = (props) => {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>AI CALL ASSIST</Text>
       </View>
@@ -23,7 +25,6 @@ const AboutScreen = () => {
         </Text>
 
         <Text style={styles.subtitle}>TEAM:</Text>
-        {/* You would replace these names with the names of your team members */}
         <Text style={styles.paragraph}>Alvaro Aguirre Meza</Text>
         <Text style={styles.paragraph}>Kaariish Parameswaran</Text>
         <Text style={styles.paragraph}>Amir Yektajoo</Text>
@@ -34,39 +35,6 @@ const AboutScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  header: {
-    alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#7D3C98', // or any color you want from the gradient
-  },
-  headerTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-  contentContainer: {
-    padding: 20,
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginTop: 10,
-  },
-  paragraph: {
-    fontSize: 16,
-    lineHeight: 24,
-    marginTop: 4,
-  },
-});
 
-export default AboutScreen;
+
+export default withGradient(AboutScreen);
