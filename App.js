@@ -18,6 +18,10 @@ const App = () => {
     setIsLoggedIn(true);
   };
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <LinearGradient colors={['#7D3C98', '#7D3C98', '#FFFFFF']} style={styles.gradient}>
     <NavigationContainer>
