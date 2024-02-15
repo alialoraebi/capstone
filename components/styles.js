@@ -112,7 +112,7 @@ export default StyleSheet.create({
       },
       headerContainer: {
         marginTop: 10,
-        backgroundColor: '#7D3C98', // Adjust the color as needed
+        backgroundColor: '#7D3C98', 
       },
       statsContainer: {
         alignSelf: 'stretch',
@@ -122,7 +122,7 @@ export default StyleSheet.create({
         marginTop: 10,
       },
       statsBox: {
-        backgroundColor: '#8E44AD', // Adjust the color as needed
+        backgroundColor: '#8E44AD', 
         borderRadius: 10,
         padding: 20,
         marginBottom: 20,
@@ -146,54 +146,50 @@ export default StyleSheet.create({
         width: '80%',
         marginBottom: 40,
       },
-      aboutScreen: {
-        container: {
-            flex: 1,
-            padding: 20,
-            backgroundColor: '#FFFFFF',
-        },
-        header: {
-            alignItems: 'center',
-            marginBottom: 20,
-        },
-        headerTitle: {
-            fontSize: 24,
-            fontWeight: 'bold',
-            color: '#000',
-        },
-        contentContainer: {
-            marginTop: 20,
-        },
-        title: {
-            fontSize: 24,
-            fontWeight: 'bold',
-            color: '#000',
-            marginBottom: 10,
-        },
-        subtitle: {
-            fontSize: 20,
-            fontWeight: 'bold',
-            color: '#000',
-            marginTop: 20,
-            marginBottom: 10,
-        },
-        paragraph: {
-            fontSize: 16,
-            color: '#000',
-            lineHeight: 24,
-        },
-    },
-//   loginScreen: {
-//     // ... your styles for login screen
-//   },
-//   dashboardScreen: {
-//     // ... your styles for dashboard screen
-//   },
-//   settingsScreen: {
-//     // ... your styles for settings screen
-//   },
-//   faqScreen: {
-//     // ... your styles for FAQ screen
-//   },
-//   // Add more component styles as needed
+      aboutScreenContentContainer: {
+        flex: 1,
+        padding: 30,
+        backgroundColor: '#FFFFFF',
+      },
+      aboutScreenTitle: {
+        fontSize: 26,
+        fontWeight: 'bold',
+        color: '#000',
+        marginBottom: 10,
+      },
+      aboutScreenSubtitle: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: '#000',
+        marginTop: 20,
+        marginBottom: 10,
+      },
+      aboutScreenParagraph: {
+        fontSize: 18,
+        color: '#000',
+        lineHeight: 24,
+        marginBottom: 10,
+      },
+      buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        marginTop: 20,
+      },
+      addButton: {
+        backgroundColor: '#4CAF50',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+      },
+      deleteButton: {
+        backgroundColor: '#FF5722',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+      },
+      buttonText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 16,
+      },
 });
