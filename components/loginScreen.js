@@ -1,37 +1,37 @@
-import React, { useState } from 'react';
-import { View, TextInput, Text, TouchableOpacity } from 'react-native';
+import React, {useState} from 'react';
 import styles from './styles';
-const LoginScreen = () => {
+
+import {
+  SafeAreaView,
+  KeyboardAvoidingView,
+  View,
+  TextInput,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
+
+const LoginScreen = ({ onLogin }) => { // Assume onLogin is passed from the parent component
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
 
-  const handleLogin = async () => {
-    try {
-      const response = await fetch('http://localhost:3000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
+  // Replace 'user' and 'pass' with your desired login credentials
+  const USER_CREDENTIALS = { user: 'ADMIN', pass: 'PASSWORD' };
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data.message); // Display success message
-      } else {
-        const error = await response.text();
-        console.error(error); // Display error message
-      }
-    } catch (error) {
-      console.error('Error:', error);
+  const handleLogin = () => {
+    if (username === USER_CREDENTIALS.user && password === USER_CREDENTIALS.pass) {
+      // Implement what should happen after successful login
+      onLogin(); // This function would typically be passed down from the parent component
+    } else {
+      // Handle login failure (e.g., show an error message)
+      alert('Incorrect username or password!');
     }
   };
 
   return (
-    <View style={styles.gradient}> {/* Apply gradient style */}
-      <View style={styles.container}>
-        <View style={styles.keyboardView}>
-          <Text style={styles.title}>AI CALL ASSIST</Text>
+    <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingView behavior="padding" style={styles.keyboardView}>
+          <Text style={styles.title}>       AI CALL ASSIST</Text>
           <View style={styles.loginContainer}>
             <Text style={styles.loginTitle}>LOG IN</Text>
             <TextInput
@@ -39,7 +39,7 @@ const LoginScreen = () => {
               style={styles.input}
               placeholderTextColor="#FFF9"
               value={username}
-              onChangeText={setUsername}
+              onChangeText={setUsername} // Updates the username state on change
             />
             <TextInput
               placeholder="Password"
@@ -47,7 +47,7 @@ const LoginScreen = () => {
               placeholderTextColor="#FFF9"
               secureTextEntry
               value={password}
-              onChangeText={setPassword}
+              onChangeText={setPassword} // Updates the password state on change
             />
             <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
               <Text style={styles.loginButtonText}>LOG IN</Text>
@@ -55,9 +55,10 @@ const LoginScreen = () => {
             <View style={styles.optionsContainer}>
               <TouchableOpacity
                 style={styles.checkboxContainer}
-                onPress={() => console.log('Remember me')}>
+                onPress={() => setRememberMe(!rememberMe)}
+              >
                 <View style={styles.checkbox}>
-                  <Text style={styles.checkboxText}>✓</Text>
+                  <Text style={styles.checkboxText}>{rememberMe ? '✓' : ''}</Text>
                 </View>
                 <Text style={styles.rememberMeText}>Remember Me</Text>
               </TouchableOpacity>
@@ -66,9 +67,8 @@ const LoginScreen = () => {
               </TouchableOpacity>
             </View>
           </View>
-        </View>
-      </View>
-    </View>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 };
 
