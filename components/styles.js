@@ -2,6 +2,7 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  // Main Screebs
     gradient: {
         position: 'absolute',
         top: 0,
@@ -15,6 +16,7 @@ export default StyleSheet.create({
     keyboardView: {
       flex: 1,
     },
+    // Login Screen
     loginContainer: {
       margin: 40,
       padding: 20,
@@ -36,7 +38,7 @@ export default StyleSheet.create({
       alignItems: 'center',
       margin: 20,
     },
-    input: {
+    loginInput: {
       width: '100%',
       backgroundColor: '#FFFFFF10', 
       padding: 15,
@@ -86,6 +88,7 @@ export default StyleSheet.create({
       color: '#FFF',
       textDecorationLine: 'underline'
     },
+    // Home Screen
     menuContainer: {
       flexDirection: 'row',
       justifyContent: 'space-around',
@@ -140,6 +143,7 @@ export default StyleSheet.create({
       color: '#FFF',
       marginTop: 5,
     },
+    // About Screen
     socialMediaContainer: {
       flexDirection: 'row',
       justifyContent: 'space-around',
@@ -155,13 +159,13 @@ export default StyleSheet.create({
       fontSize: 26,
       fontWeight: 'bold',
       color: '#000',
-      marginBottom: 10,
+      paddingTop: 20,
     },
     aboutScreenSubtitle: {
       fontSize: 22,
       fontWeight: 'bold',
       color: '#000',
-      marginTop: 20,
+      marginTop: 15,
       marginBottom: 10,
     },
     aboutScreenParagraph: {
@@ -170,6 +174,7 @@ export default StyleSheet.create({
       lineHeight: 24,
       marginBottom: 10,
     },
+    //AI Configuration Screen
     buttonContainer: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
@@ -191,5 +196,83 @@ export default StyleSheet.create({
       color: 'white',
       fontWeight: 'bold',
       fontSize: 16,
+    },
+    // Settings Screen
+    title: {
+      fontSize: 28,
+      fontWeight: 'bold',
+      color: 'white',
+      alignSelf: 'center',
+      marginBottom: 30,
+    },
+    settingsContainer: {
+      paddingTop: 50,
+      padding: 25,
+    },
+    inputContainer: {
+      marginBottom: 30,
+    },
+    inputLabel: {
+      fontSize: 18,
+      color: 'white',
+      marginBottom: 10,
+    },
+    input: {
+      backgroundColor: 'white',
+      borderRadius: 20,
+      fontSize: 16,
+      padding: 15,
+      marginBottom: 20,
+      elevation: 3, // for Android shadow
+      shadowOpacity: 0.3, // for iOS shadow
+      shadowRadius: 3,
+      shadowOffset: { width: 0, height: 2 },
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      marginBottom: 30,
+    },
+    roundButton: {
+      backgroundColor: 'white',
+      width: 110,
+      height: 110,
+      borderRadius: 60,
+      justifyContent: 'center',
+      alignItems: 'center',
+      elevation: 3,
+      shadowOpacity: 0.3, 
+      shadowRadius: 3,
+      shadowOffset: { width: 0, height: 2 },
+    },
+    largeRoundButton: {
+      backgroundColor: 'white',
+      width: 120,
+      height: 120,
+      borderRadius: 60,
+      justifyContent: 'center',
+      alignItems: 'center',
+      elevation: 3, 
+      shadowOpacity: 0.3, 
+      shadowRadius: 3,
+      shadowOffset: { width: 0, height: 2 },
+    },
+    buttonText: {
+      color: '#7D3C98',
+      fontSize: 16,
+      textAlign: 'center',
+    },
+    logoutButton: {
+      backgroundColor: '#8E44AD',
+      padding: 15,
+      borderRadius: 5,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    logoutText: {
+      color: 'white',
+      fontSize: 18,
+      fontWeight: 'bold',
     },
 });

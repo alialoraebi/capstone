@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text, TextInput } from 'react-native';
 import styles from './styles';
 import withGradient from './gradient';
 
-const StatisticsScreen = () => {
+const StatisticsScreen = (props) => {
     const handleAdd = () => {
         // Logic for adding item
     };

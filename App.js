@@ -1,37 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ImageBackground } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import MyTabs from './components/tabNavigator';
 import LoginScreen from './components/loginScreen';
 import HomeScreen from './components/homeScreen';
 import AboutScreen from './components/aboutScreen'; 
+import SettingsScreen from './components/settingsScreen';
 import styles from './components/styles';
+import { AuthProvider, useAuth } from './components/AuthContext'; 
 
 const Stack = createNativeStackNavigator();
 
-const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
+const AppNavigation = () => {
+  const { isLoggedIn } = useAuth(); 
 
   return (
-    <LinearGradient colors={['#7D3C98', '#7D3C98', '#FFFFFF']} style={styles.gradient}>
     <NavigationContainer>
       {isLoggedIn ? (
-        <MyTabs/>
+        <MyTabs /> 
       ) : (
-          <Stack.Navigator>
-            <Stack.Screen name="Login" component={LoginScreen} initialParams={{ onLogin: handleLogin }} options={{ headerShown: false }} />
-            <Stack.Screen name="Home" component={HomeScreen}/>
-            <Stack.Screen name="About" component={AboutScreen}/>
-          </Stack.Navigator>
+        <Stack.Navigator>
+          <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Settings" component={SettingsScreen} />
+          <Stack.Screen name="About" component={AboutScreen} />
+        </Stack.Navigator>
       )}
     </NavigationContainer>
-    </LinearGradient>
+  );
+};
+
+const App = () => {
+  return (
+    <AuthProvider>
+      <LinearGradient colors={['#7D3C98', '#7D3C98', '#FFFFFF']} style={styles.gradient}>
+        <AppNavigation /> 
+      </LinearGradient>
+    </AuthProvider>
   );
 };
 
