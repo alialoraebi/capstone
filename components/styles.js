@@ -179,7 +179,7 @@ export default StyleSheet.create({
         },
         paragraph: {
             fontSize: 16,
-            color: '#000',
+            color: '#FFFFFF',
             lineHeight: 24,
         },
     },
