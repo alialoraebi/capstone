@@ -1,56 +1,59 @@
-import React from 'react';
-import { SafeAreaView,ScrollView, View, TouchableOpacity,Text,TextInput, } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import withGradient from './gradient';
 import styles from './styles';
-import { Button } from 'react-native-paper';
+import { useAuth } from './AuthContext';
 
-//import { FontAwesome, MaterialIcons, Ionicons } from '@expo/vector-icons'; // Make sure you have these icons installed
+const SettingsScreen = (props) => {
 
-
-const SettingScreen = () => {
-  const handleAdd = () => {
-    // Logic for adding item
+  const [username, setUsername] = useState('MakeUpRestaurant');
+  const [password, setPassword] = useState('password'); 
+  const [location, setLocation] = useState('Toronto, ON');
+  
+  const { handleLogout } = useAuth();
+  
+  return (
+    <View style={styles.settingsContainer}>
+      <Text style={styles.title}>Settings</Text>
+      <View style={styles.inputContainer}>
+        <Text style={styles.inputLabel}>Username</Text>
+        <TextInput
+          style={styles.input}
+          value={username}
+          onChangeText={setUsername}
+          autoCapitalize="none"
+        />
+        <Text style={styles.inputLabel}>Password</Text>
+        <TextInput
+          style={styles.input}
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+          autoCapitalize="none"
+        />
+        <Text style={styles.inputLabel}>Location</Text>
+        <TextInput
+          style={styles.input}
+          value={location}
+          onChangeText={setLocation}
+        />
+      </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.roundButton}>
+            <Text style={styles.buttonText}>AI Configuration</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.roundButton}>
+            <Text style={styles.buttonText}>AI Behavior</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.roundButton}>
+            <Text style={styles.buttonText}>FAQ</Text>
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+          <Text style={styles.logoutText}>LOG OUT</Text>
+        </TouchableOpacity>
+      </View>
+  );
 };
 
-const handleDelete = () => {
-    // Logic for deleting item
-};
-
-return (
-<LinearGradient colors={['#7D3C98', '#7D3C98', '#FFFFFF']} style={styles.gradient}>
-<View style={styles.header}>
-    <Text style={styles.headerTitle}>STATISTICS</Text>
-</View>
-<View>
-<TextInput
-placeholder="CATEGORY"
-placeholderTextColor="#FFF9"
-style={styles.input}
-/>
-
-<TextInput
-placeholder="NAME"
-placeholderTextColor="#FFF9"
-style={styles.input}
-/>
-
-<TextInput
-placeholder="PRICE"
-placeholderTextColor="#FFF9"
-style={styles.input}
-/>
-
-</View>
-<View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.addButton} onPress={handleAdd}>
-                    <Text style={styles.buttonText}>ADD</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
-                    <Text style={styles.buttonText}>DELETE</Text>
-                </TouchableOpacity>
-            </View>
-</LinearGradient>
-);
-};
-export default SettingScreen;
+export default withGradient(SettingsScreen);
