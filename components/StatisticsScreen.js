@@ -1,50 +1,35 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, TextInput } from 'react-native';
-import styles from './styles';
+import { ScrollView, View, Text } from 'react-native';
 import withGradient from './gradient';
+import styles from './styles';
 
 const StatisticsScreen = (props) => {
-    const handleAdd = () => {
-        // Logic for adding item
-    };
-
-    const handleDelete = () => {
-        // Logic for deleting item
-    };
 
     return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.headerTitle}>STATISTICS</Text>
-            </View>
-            <View>
-                <TextInput
-                    placeholder="CATEGORY"
-                    placeholderTextColor="#FFF9"
-                    style={styles.input}
-                />
-
-                <TextInput
-                    placeholder="NAME"
-                    placeholderTextColor="#FFF9"
-                    style={styles.input}
-                />
-
-                <TextInput
-                    placeholder="PRICE"
-                    placeholderTextColor="#FFF9"
-                    style={styles.input}
-                />
-            </View>
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.addButton} onPress={handleAdd}>
-                    <Text style={styles.buttonText}>ADD</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
-                    <Text style={styles.buttonText}>DELETE</Text>
-                </TouchableOpacity>
-            </View>
+        <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.statsContainer}>
+        <View style={styles.statsBox}>
+            <Text style={styles.statsText}>NUMBER OF CALLS</Text>
+          <Text style={styles.statsNumber}>3</Text>
+          
         </View>
+        <View style={styles.statsBox}>
+            <Text style={styles.statsText}>MISSED CALLS</Text>
+            <Text style={styles.statsNumber}>12</Text>
+          
+        </View>
+        <View style={styles.statsBox}>
+            <Text style={styles.statsText}>AVERAGE CALL TIME</Text>
+          <Text style={styles.statsNumber}>1 MIN 30 SEC</Text>
+          
+        </View>
+        <View style={styles.statsBox}>
+            <Text style={styles.statsText}>CALLS FORWARDED TO LIVE AGENTS</Text>
+          <Text style={styles.statsNumber}>3</Text>
+          
+        </View>
+      </View>
+    </ScrollView>
     );
 };
 

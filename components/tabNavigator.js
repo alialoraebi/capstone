@@ -5,7 +5,9 @@ import StatisticsScreen from './StatisticsScreen';
 import SettingsScreen from './SettingScreen';
 import AboutScreen from './AboutScreen';
 import HomeScreen from './HomeScreen'; 
+import AiConfig from './AiConfig';
 import styles from './styles';
+import e from 'cors';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,6 +26,8 @@ const MyTabs = () => {
             iconName = 'cogs';
           } else if (route.name === 'Contact') {
             iconName = 'envelope-o';
+          }else if (route.name === 'AiConfig') {
+            iconName = 'gear';
           }
 
           return <Icon name={iconName} size={size} color={color} />;
@@ -36,6 +40,7 @@ const MyTabs = () => {
       <Tab.Screen name="Statistics" component={StatisticsScreen} options={{ headerShown: false }} />
       <Tab.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }} />
       <Tab.Screen name="Contact" component={AboutScreen} options={{ headerShown: false }} />
+      <Tab.Screen name="AiConfig" component={AiConfig} options={{ headerShown: false }} />
     </Tab.Navigator>
   );
 };
