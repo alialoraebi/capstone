@@ -326,4 +326,23 @@ export default StyleSheet.create({
       fontSize: 16,
       color: 'white',
     },
+    buttonsRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      paddingVertical: 10,
+    },
+    AIConfigAddButton: {
+      backgroundColor: '#4CAF50',
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      borderRadius: 5,
+    },
+    AIConfigDeleteButton: {
+      backgroundColor: '#FF5722',
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      borderRadius: 5,
+    },
+
 });
