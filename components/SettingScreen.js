@@ -4,8 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import withGradient from './gradient';
 import styles from './styles';
 import { useAuth } from './AuthContext';
-
-
+import AiConfig from './AiConfig';
 const SettingsScreen = () => {
     const [username, setUsername] = useState('MakeUpRestaurant');
     const [password, setPassword] = useState('password'); 
