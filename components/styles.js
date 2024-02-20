@@ -275,4 +275,55 @@ export default StyleSheet.create({
       fontSize: 18,
       fontWeight: 'bold',
     },
+    //AI Configuration Screen
+    AIConfigContainer: {
+      flex: 1,
+      margin: 20,
+      marginTop: 60,
+    },
+    AIConfigHeader: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: 10,
+      backgroundColor: '#7D3C98',
+      marginBottom: 40,
+    },
+    AIConfigHeaderTitle: {
+      color: 'white',
+      fontSize: 20,
+      fontWeight: 'bold',
+    },
+    headerActions: {
+      flexDirection: 'row',
+    },
+    headerActionText: {
+      color: 'white',
+      marginHorizontal: 10,
+    },
+    subTitle: {
+      fontSize: 16,
+      marginVertical: 5,
+      marginLeft: 10,
+      color: 'white',
+    },
+    menuTitle: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      marginTop: 10,
+      marginLeft: 10,
+      color: '#E8D8C4',
+
+    },
+    menuItem: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      padding: 10,
+      borderBottomWidth: 1,
+      borderBottomColor: '#B7C9F2',
+    },
+    menuItemText: {
+      fontSize: 16,
+      color: 'white',
+    },
 });
