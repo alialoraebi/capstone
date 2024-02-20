@@ -26,10 +26,7 @@ const MyTabs = () => {
             iconName = 'cogs';
           } else if (route.name === 'Contact') {
             iconName = 'envelope-o';
-          }else if (route.name === 'AiConfig') {
-            iconName = 'gear';
           }
-
           return <Icon name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: '#7D3C98',
@@ -40,7 +37,7 @@ const MyTabs = () => {
       <Tab.Screen name="Statistics" component={StatisticsScreen} options={{ headerShown: false }} />
       <Tab.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }} />
       <Tab.Screen name="Contact" component={AboutScreen} options={{ headerShown: false }} />
-      <Tab.Screen name="AiConfig" component={AiConfig} options={{ headerShown: false }} />
+    
     </Tab.Navigator>
   );
 };

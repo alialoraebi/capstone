@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Import the 'useNavigation' hook
+import { useNavigation } from '@react-navigation/native';
 import withGradient from './gradient';
 import styles from './styles';
+import { useAuth } from './AuthContext';
+
 
 const SettingsScreen = () => {
     const [username, setUsername] = useState('MakeUpRestaurant');
-    const [password, setPassword] = useState('password');
+    const [password, setPassword] = useState('password'); 
     const [location, setLocation] = useState('Toronto, ON');
     
-    const navigation = useNavigation(); // Initialize the 'navigation' object
-
-    const goToAiConfig = () => {
-        navigation.navigate('AiConfig'); // Navigate to 'AiConfig' screen
+    const { handleLogout } = useAuth();
+    
+    const navigation = useNavigation();
+    const goToAiConfigScreen = () => {
+        navigation.navigate('AiConfig');
     };
 
     return (
@@ -40,9 +43,10 @@ const SettingsScreen = () => {
                     value={location}
                     onChangeText={setLocation}
                 />
+                
             </View>
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.roundButton} onPress={goToAiConfig}>
+                <TouchableOpacity style={styles.roundButton}  onPress={goToAiConfigScreen}>
                     <Text style={styles.buttonText}>AI Configuration</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.roundButton}>
@@ -51,7 +55,11 @@ const SettingsScreen = () => {
                 <TouchableOpacity style={styles.roundButton}>
                     <Text style={styles.buttonText}>FAQ</Text>
                 </TouchableOpacity>
+                <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+                <Text style={styles.logoutText}>LOG OUT</Text>
+            </TouchableOpacity>
             </View>
+            
         </View>
     );
 };
