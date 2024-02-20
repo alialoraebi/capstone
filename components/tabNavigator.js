@@ -6,6 +6,7 @@ import SettingsScreen from './settingsScreen';
 import AboutScreen from './aboutScreen';
 import HomeScreen from './homeScreen'; 
 import styles from './styles';
+import SettingsStackNavigator from './SettingsStackNav';
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +35,7 @@ const MyTabs = () => {
     >
       <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
       <Tab.Screen name="Statistics" component={StatisticsScreen} options={{ headerShown: false }} />
-      <Tab.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }} />
+      <Tab.Screen name="Settings" component={SettingsStackNavigator} options={{headerShown: false}}/>
       <Tab.Screen name="Contact" component={AboutScreen} options={{ headerShown: false }} />
     </Tab.Navigator>
   );

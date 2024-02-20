@@ -5,13 +5,17 @@ import withGradient from './gradient';
 import styles from './styles';
 import { useAuth } from './AuthContext';
 
-const SettingsScreen = (props) => {
+const SettingsScreen = ({navigation}) => {
 
   const [username, setUsername] = useState('MakeUpRestaurant');
   const [password, setPassword] = useState('password'); 
   const [location, setLocation] = useState('Toronto, ON');
   
   const { handleLogout } = useAuth();
+
+  const goToAiConfig = () => {
+    navigation.navigate('AiConfig');
+  }
   
   return (
     <View style={styles.settingsContainer}>
@@ -40,7 +44,7 @@ const SettingsScreen = (props) => {
         />
       </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.roundButton}>
+          <TouchableOpacity style={styles.roundButton} onPress={goToAiConfig}>
             <Text style={styles.buttonText}>AI Configuration</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.roundButton}>

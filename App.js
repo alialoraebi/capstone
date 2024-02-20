@@ -7,6 +7,7 @@ import LoginScreen from './components/loginScreen';
 import HomeScreen from './components/homeScreen';
 import AboutScreen from './components/aboutScreen'; 
 import SettingsScreen from './components/settingsScreen';
+import AiConfig from './components/AiConfig';
 import styles from './components/styles';
 import { AuthProvider, useAuth } from './components/AuthContext'; 
 
@@ -24,6 +25,7 @@ const AppNavigation = () => {
           <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Settings" component={SettingsScreen} />
+          <Stack.Screen name="AiConfig" component={AiConfig} />
           <Stack.Screen name="About" component={AboutScreen} />
         </Stack.Navigator>
       )}
