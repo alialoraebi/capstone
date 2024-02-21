@@ -2,7 +2,7 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  // Main Screebs
+  // Main Screens
     gradient: {
         position: 'absolute',
         top: 0,
@@ -330,7 +330,6 @@ export default StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       padding: 10,
-      // If you want to add spacing between your Add/Delete buttons
       paddingHorizontal: 20,
     },
     buttonsRow: {
