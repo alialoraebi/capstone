@@ -153,13 +153,14 @@ export default StyleSheet.create({
     aboutScreenContentContainer: {
       flex: 1,
       padding: 30,
-      backgroundColor: '#FFFFFF',
     },
     aboutScreenTitle: {
       fontSize: 26,
       fontWeight: 'bold',
       color: '#000',
       paddingTop: 20,
+      alignSelf: 'center',
+      marginVertical: 10,
     },
     aboutScreenSubtitle: {
       fontSize: 22,
@@ -343,6 +344,99 @@ export default StyleSheet.create({
       paddingVertical: 10,
       paddingHorizontal: 20,
       borderRadius: 5,
+    },
+    //FAQ Screen
+    FAQScreencontainer: {
+      flex: 1,
+      padding: 20,
+    },
+    FAQtitle: {
+      paddingTop: 20,
+      fontSize: 30,
+      fontWeight: 'bold',
+      color: '#600060', 
+      alignSelf: 'center',
+      marginVertical: 10,
+    },
+    FAQheader: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: '#600060', 
+      marginBottom: 10,
+    },
+    FAQsubHeader: {
+      fontSize: 16,
+      color: '#600060', 
+      marginBottom: 20,
+    },
+    searchContainer: {
+      flexDirection: 'row',
+      paddingBottom: 10,
+      paddingHorizontal: 10,
+      marginBottom: 20,
+      borderRadius: 20,
+      backgroundColor: '#F0F0F0',
+    },
+    searchBar: {
+      flex: 1,
+      padding: 10,
+      fontSize: 16,
+      borderRadius: 20, 
+      color: '#333', 
+    },
+    faqContainer: {
+      marginBottom: 20,  
+    },
+    faqItem: {
+      marginBottom: 20, 
+    },
+    question: {
+      fontWeight: 'bold',
+      fontSize: 18, 
+      color: '#800080', 
+      marginBottom: 5, 
+    },
+    answer: {
+      fontSize: 16,
+      color: '#333', 
+      lineHeight: 24,
+    },
+    messageButton: {
+      backgroundColor: '#4B0082', 
+      paddingVertical: 15,
+      paddingHorizontal: 20,
+      borderRadius: 25,
+      alignItems: 'center',
+      justifyContent: 'center', 
+      marginTop: 20,
+    },
+    messageButtonText: {
+      color: '#FFFFFF',
+      fontSize: 18,
+      fontWeight: 'bold',
+    },
+    inputFieldsContainer: {
+      marginTop: 20,
+    },
+    inputField: {
+      backgroundColor: '#F0F0F0',
+      borderRadius: 10,
+      paddingHorizontal: 15,
+      paddingVertical: 10,
+      marginBottom: 15,
+    },
+    sendButton: {
+      backgroundColor: '#4B0082',
+      borderRadius: 25,
+      paddingVertical: 15,
+      paddingHorizontal: 20,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    sendButtonText: {
+      color: '#FFFFFF',
+      fontSize: 18,
+      fontWeight: 'bold',
     },
 
 });

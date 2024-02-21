@@ -1,14 +1,34 @@
-// FAQScreen.js
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import withGradient from './gradient';
+import axios from 'axios';
+import styles from './styles';
 
 const FAQScreen = () => {
+  const [showInputFields, setShowInputFields] = useState(false);
+  const [name, setName] = useState('');
+  const [question, setQuestion] = useState('');
+
+  const handleSendQuestion = async () => {
+    try {
+      // Make POST request to your backend API
+      await axios.post('http://localhost:3000/api/questions', {
+        name,
+        question
+      });
+      setName('');
+      setQuestion('');
+      setShowInputFields(false);
+    } catch (error) {
+      console.error('Error sending question:', error);
+    }
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>FAQ</Text>
-      <Text style={styles.header}>We’re here to help you with anything and everything on AI Call Assist</Text>
-      <Text style={styles.subHeader}>
+    <View style={styles.FAQScreencontainer}>
+      <Text style={styles.FAQtitle}>FAQ</Text>
+      <Text style={styles.FAQheader}>We’re here to help you with anything and everything on AI Call Assist</Text>
+      <Text style={styles.FAQsubHeader}>
         At AI Call Assist we expect at a day's start is you, better and happier than yesterday. We have got you covered share your concern or check our frequently asked questions listed below.
       </Text>
       <View style={styles.searchContainer}>
@@ -18,7 +38,7 @@ const FAQScreen = () => {
         />
       </View>
       <ScrollView style={styles.faqContainer}>
-        <View style={styles.faqItem}>
+      <View style={styles.faqItem}>
           <Text style={styles.question}>Q: What is an AI Call Assist system?</Text>
           <Text style={styles.answer}>A: An AI Call Assist system is a technology that uses artificial intelligence to help manage and handle incoming calls, 
           assisting callers with queries, directing them to the right department or 
@@ -39,84 +59,32 @@ const FAQScreen = () => {
           to a human agent for certain nuanced or intricate issues.</Text>
         </View>
       </ScrollView>
-      <TouchableOpacity style={styles.messageButton}>
-        <Text style={styles.messageButtonText}>Send a Message</Text>
-      </TouchableOpacity>
+      {!showInputFields ? (
+        <TouchableOpacity style={styles.messageButton} onPress={() => setShowInputFields(true)}>
+          <Text style={styles.messageButtonText}>Send a Question</Text>
+        </TouchableOpacity>
+      ) : (
+        <View style={styles.inputFieldsContainer}>
+          <TextInput
+            style={styles.inputField}
+            placeholder="Name"
+            value={name}
+            onChangeText={setName}
+          />
+          <TextInput
+            style={styles.inputField}
+            placeholder="Question"
+            value={question}
+            onChangeText={setQuestion}
+            multiline
+          />
+          <TouchableOpacity style={styles.sendButton} onPress={handleSendQuestion}>
+            <Text style={styles.sendButtonText}>Send</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: '#fff', 
-  },
-  title: {
-    paddingTop: 20,
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: '#800080', 
-    alignSelf: 'center',
-    marginVertical: 10,
-  },
-  header: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#800080', 
-    marginBottom: 10,
-  },
-  subHeader: {
-    fontSize: 16,
-    color: '#600060', 
-    marginBottom: 20,
-  },
-  searchContainer: {
-    flexDirection: 'row',
-    paddingBottom: 10,
-    paddingHorizontal: 10,
-    marginBottom: 20,
-    borderRadius: 20,
-    backgroundColor: '#F0F0F0',
-  },
-  searchBar: {
-    flex: 1,
-    padding: 10,
-    fontSize: 16,
-    borderRadius: 20, 
-    color: '#333', 
-  },
-  faqContainer: {
-    marginBottom: 20,  
-  },
-  faqItem: {
-    marginBottom: 20, 
-  },
-  question: {
-    fontWeight: 'bold',
-    fontSize: 18, 
-    color: '#800080', 
-    marginBottom: 5, 
-  },
-  answer: {
-    fontSize: 16,
-    color: '#333', 
-    lineHeight: 24,
-  },
-  messageButton: {
-    backgroundColor: '#4B0082', 
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    borderRadius: 25,
-    alignItems: 'center',
-    justifyContent: 'center', 
-    marginTop: 20,
-  },
-  messageButtonText: {
-    color: '#FFFFFF',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-});
 
 export default withGradient(FAQScreen);

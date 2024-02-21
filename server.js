@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,9 +29,16 @@ const userSchema = new mongoose.Schema({
   password: String,
 });
 
+const questionSchema = new mongoose.Schema({
+  name: String,
+  question: String
+});
+
 const User = mongoose.model('User', userSchema);
+const Question = mongoose.model('Question', questionSchema);
 
 // Middleware
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -69,6 +78,19 @@ app.post('/api/login', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+});
+
+app.post('/api/questions', async (req, res) => {
+  try {
+    const { name, question } = req.body;
+    // Save the question to MongoDB
+    const newQuestion = new Question({ name, question });
+    await newQuestion.save();
+    res.status(201).json({ message: 'Question sent successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
