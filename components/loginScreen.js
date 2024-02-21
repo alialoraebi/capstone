@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useRoute } from '@react-navigation/native';
 import withGradient from './gradient';
 import styles from './styles';
+import { useAuth } from './AuthContext'; 
 
 
 import {
@@ -14,21 +15,17 @@ import {
 } from 'react-native';
 
 const LoginScreen = (props) => {
-  const route = useRoute();
-  const onLogin = route.params?.onLogin;
+  const { handleLogin } = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
-  // Replace 'user' and 'pass' with your desired login credentials
   const USER_CREDENTIALS = { user: 'ADMIN', pass: 'PASSWORD' };
 
-  const handleLogin = () => {
+  const attemptLogin = () => {
     if (username === USER_CREDENTIALS.user && password === USER_CREDENTIALS.pass) {
-      // Implement what should happen after successful login
-      onLogin(); 
+      handleLogin();
     } else {
-      // Handle login failure (e.g., show an error message)
       alert('Incorrect username or password!');
     }
   };
@@ -41,20 +38,20 @@ const LoginScreen = (props) => {
             <Text style={styles.loginTitle}>LOG IN</Text>
             <TextInput
               placeholder="Username"
-              style={styles.input}
+              style={styles.loginInput}
               placeholderTextColor="#FFF9"
               value={username}
               onChangeText={setUsername} // Updates the username state on change
             />
             <TextInput
               placeholder="Password"
-              style={styles.input}
+              style={styles.loginInput}
               placeholderTextColor="#FFF9"
               secureTextEntry
               value={password}
               onChangeText={setPassword} // Updates the password state on change
             />
-            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+            <TouchableOpacity style={styles.loginButton} onPress={attemptLogin}>
               <Text style={styles.loginButtonText}>LOG IN</Text>
             </TouchableOpacity>
             <View style={styles.optionsContainer}>

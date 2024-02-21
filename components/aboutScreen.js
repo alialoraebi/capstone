@@ -1,20 +1,15 @@
 // AboutScreen.js
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text } from 'react-native';
 import withGradient from './gradient';
 import styles from './styles';
 
 const AboutScreen = (props) => {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>AI CALL ASSIST</Text>
-      </View>
-
-      <View style={styles.contentContainer}>
-        <Text style={styles.title}>ABOUT US</Text>
-        <Text style={styles.subtitle}>PURPOSE:</Text>
-        <Text style={styles.paragraph}>
+      <View style={styles.aboutScreenContentContainer}>
+        <Text style={styles.aboutScreenTitle}>About Us</Text>
+        <Text style={styles.aboutScreenSubtitle}>Purpose:</Text>
+        <Text style={styles.aboutScreenParagraph}>
           The company assists businesses in providing 100% accurate customer support through an 
           automated answering system. The company helps restaurants with their customer support 
           through phone assistance by integrating a software to the restaurants phone number. When 
@@ -24,14 +19,13 @@ const AboutScreen = (props) => {
           important tasks rather than worry about answering calls.
         </Text>
 
-        <Text style={styles.subtitle}>TEAM:</Text>
-        <Text style={styles.paragraph}>Alvaro Aguirre Meza</Text>
-        <Text style={styles.paragraph}>Kaariish Parameswaran</Text>
-        <Text style={styles.paragraph}>Amir Yektajoo</Text>
-        <Text style={styles.paragraph}>Ali Al Aoraebi</Text>
-        <Text style={styles.paragraph}>Samuel Ntambwe</Text>
+        <Text style={styles.aboutScreenSubtitle}>Team:</Text>
+        <Text style={styles.aboutScreenParagraph}>Alvaro Aguirre Meza</Text>
+        <Text style={styles.aboutScreenParagraph}>Kaarish Parameswaran</Text>
+        <Text style={styles.aboutScreenParagraph}>Amir Yektajoo</Text>
+        <Text style={styles.aboutScreenParagraph}>Ali Al Aoraebi</Text>
+        <Text style={styles.aboutScreenParagraph}>Samuel Ntambwe</Text>
       </View>
-    </ScrollView>
   );
 };
 
