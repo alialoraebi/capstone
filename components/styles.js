@@ -326,6 +326,13 @@ export default StyleSheet.create({
       fontSize: 16,
       color: 'white',
     },
+    actionRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      padding: 10,
+      // If you want to add spacing between your Add/Delete buttons
+      paddingHorizontal: 20,
+    },
     buttonsRow: {
       flexDirection: 'row',
       justifyContent: 'space-around',
