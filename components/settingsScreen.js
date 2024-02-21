@@ -16,6 +16,10 @@ const SettingsScreen = ({navigation}) => {
   const goToAiConfig = () => {
     navigation.navigate('AiConfig');
   }
+
+  const goTofaqScreen = () => { 
+    navigation.navigate('faqScreen');
+  }
   
   return (
     <View style={styles.settingsContainer}>
@@ -50,7 +54,7 @@ const SettingsScreen = ({navigation}) => {
           <TouchableOpacity style={styles.roundButton}>
             <Text style={styles.buttonText}>AI Behavior</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.roundButton}>
+          <TouchableOpacity style={styles.roundButton} onPress={goTofaqScreen}>
             <Text style={styles.buttonText}>FAQ</Text>
           </TouchableOpacity>
         </View>
