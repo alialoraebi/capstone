@@ -23,10 +23,10 @@ const AppNavigation = () => {
       ) : (
         <Stack.Navigator>
           <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Settings" component={SettingsScreen} />
-          <Stack.Screen name="AiConfig" component={AiConfig} />
-          <Stack.Screen name="About" component={AboutScreen} />
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="AiConfig" component={AiConfig} options={{ headerShown: false }} />
+          <Stack.Screen name="About" component={AboutScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
       )}
     </NavigationContainer>
