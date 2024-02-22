@@ -454,5 +454,4 @@ export default StyleSheet.create({
       color: '#FFFFFF',
       fontSize: 18,
     },
-
 });
