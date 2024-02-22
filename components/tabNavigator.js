@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome'; 
 import StatisticsScreen from './statisticsScreen';
-import AboutScreen from './aboutScreen';
+import ContactScreen from './contactScreen';
 import HomeScreen from './homeScreen'; 
 import SettingsStackNavigator from './SettingsStackNav';
 
@@ -34,7 +34,7 @@ const MyTabs = () => {
       <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
       <Tab.Screen name="Statistics" component={StatisticsScreen} options={{ headerShown: false }} />
       <Tab.Screen name="Settings" component={SettingsStackNavigator} options={{headerShown: false}}/>
-      <Tab.Screen name="Contact" component={AboutScreen} options={{ headerShown: false }} />
+      <Tab.Screen name="Contact" component={ContactScreen} options={{ headerShown: false }} />
     </Tab.Navigator>
   );
 };

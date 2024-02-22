@@ -1,28 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TextInput, ScrollView } from 'react-native';
 import withGradient from './gradient';
-import axios from 'axios';
 import styles from './styles';
 
 const FAQScreen = () => {
-  const [showInputFields, setShowInputFields] = useState(false);
-  const [name, setName] = useState('');
-  const [question, setQuestion] = useState('');
-
-  const handleSendQuestion = async () => {
-    try {
-      // Make POST request to your backend API
-      await axios.post('http://localhost:3000/api/questions', {
-        name,
-        question
-      });
-      setName('');
-      setQuestion('');
-      setShowInputFields(false);
-    } catch (error) {
-      console.error('Error sending question:', error);
-    }
-  };
 
   return (
     <View style={styles.FAQScreencontainer}>
@@ -59,30 +40,6 @@ const FAQScreen = () => {
           to a human agent for certain nuanced or intricate issues.</Text>
         </View>
       </ScrollView>
-      {!showInputFields ? (
-        <TouchableOpacity style={styles.messageButton} onPress={() => setShowInputFields(true)}>
-          <Text style={styles.messageButtonText}>Send a Question</Text>
-        </TouchableOpacity>
-      ) : (
-        <View style={styles.inputFieldsContainer}>
-          <TextInput
-            style={styles.inputField}
-            placeholder="Name"
-            value={name}
-            onChangeText={setName}
-          />
-          <TextInput
-            style={styles.inputField}
-            placeholder="Question"
-            value={question}
-            onChangeText={setQuestion}
-            multiline
-          />
-          <TouchableOpacity style={styles.sendButton} onPress={handleSendQuestion}>
-            <Text style={styles.sendButtonText}>Send</Text>
-          </TouchableOpacity>
-        </View>
-      )}
     </View>
   );
 };

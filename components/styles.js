@@ -198,82 +198,84 @@ export default StyleSheet.create({
       fontSize: 16,
     },
     // Settings Screen
-    title: {
+    settingsTitle: {
       fontSize: 28,
       fontWeight: 'bold',
-      color: 'white',
+      color: 'white', 
       alignSelf: 'center',
-      marginBottom: 30,
+      marginBottom: 10,
     },
     settingsContainer: {
       paddingTop: 50,
       padding: 25,
     },
     inputContainer: {
-      marginBottom: 30,
+      marginBottom: 20,
     },
     inputLabel: {
       fontSize: 18,
-      color: 'white',
-      marginBottom: 10,
+      color: 'white', 
+      marginBottom: 5,
     },
     input: {
       backgroundColor: 'white',
-      borderRadius: 20,
+      borderRadius: 4, 
       fontSize: 16,
       padding: 15,
       marginBottom: 20,
-      elevation: 3, // for Android shadow
-      shadowOpacity: 0.3, // for iOS shadow
-      shadowRadius: 3,
-      shadowOffset: { width: 0, height: 2 },
+      border: '1px solid #ddd', 
     },
-    buttonContainer: {
-      flexDirection: 'row',
+    userpassTitle: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: 'white', 
+      marginBottom: 20,
+    },
+    settingsButtonContainer: {
+      flexDirection: 'column',
       justifyContent: 'space-around',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       marginBottom: 30,
+      
     },
-    roundButton: {
-      backgroundColor: 'white',
-      width: 110,
-      height: 110,
-      borderRadius: 60,
+    settingsButton: {
+      padding: 10,
+      marginBottom: 0,
       justifyContent: 'center',
-      alignItems: 'center',
-      elevation: 3,
-      shadowOpacity: 0.3, 
-      shadowRadius: 3,
-      shadowOffset: { width: 0, height: 2 },
-    },
-    largeRoundButton: {
-      backgroundColor: 'white',
-      width: 120,
-      height: 120,
-      borderRadius: 60,
-      justifyContent: 'center',
-      alignItems: 'center',
-      elevation: 3, 
-      shadowOpacity: 0.3, 
-      shadowRadius: 3,
-      shadowOffset: { width: 0, height: 2 },
+      width: '100%',
+      alignItems: 'flex-start',
+      borderBottomWidth: 1,
+      borderBottomColor: 'white',
     },
     buttonText: {
-      color: '#7D3C98',
+      color: '#DCFFB7', 
       fontSize: 16,
       textAlign: 'center',
     },
-    logoutButton: {
-      backgroundColor: '#8E44AD',
+    saveButton: {
+      backgroundColor: '#4CAF50',
       padding: 15,
-      borderRadius: 5,
+      borderRadius: 4, 
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: 10,
+    },
+    saveText: {
+      color: 'white',
+      fontSize: 18,
+      fontWeight: 'bold',      
+    },
+    logoutButton: {
+      backgroundColor: '#D04848',
+      padding: 15,
+      borderRadius: 4, 
       justifyContent: 'center',
       alignItems: 'center',
     },
     logoutText: {
       color: 'white',
       fontSize: 18,
-      fontWeight: 'bold',
+      fontWeight: 'bold',      
     },
     //AI Configuration Screen
     AIConfigContainer: {
@@ -406,42 +408,51 @@ export default StyleSheet.create({
       color: '#333', 
       lineHeight: 24,
     },
-    messageButton: {
-      backgroundColor: '#4B0082', 
-      paddingVertical: 15,
-      paddingHorizontal: 20,
-      borderRadius: 25,
-      alignItems: 'center',
-      justifyContent: 'center', 
-      marginTop: 20,
+    //Contact Screen
+    contactScreenContainer: {
+      flex: 1,
+      padding: 20,
     },
-    messageButtonText: {
-      color: '#FFFFFF',
-      fontSize: 18,
+    contactTitle: {
+      paddingTop: 20,
+      fontSize: 30,
       fontWeight: 'bold',
+      color: 'white', 
+      alignSelf: 'center',
+      marginVertical: 10,
     },
-    inputFieldsContainer: {
+    contactInputContainer: {
       marginTop: 20,
+
     },
-    inputField: {
-      backgroundColor: '#F0F0F0',
-      borderRadius: 10,
-      paddingHorizontal: 15,
-      paddingVertical: 10,
-      marginBottom: 15,
+    contactInput: {
+      height: 40,
+      borderColor: '#000',
+      borderWidth: 1,
+      borderRadius: 4,
+      marginBottom: 10,
+      paddingLeft: 10,
+      backgroundColor: '#FFFFFF90',
+    },
+    queContactInput:{
+      height: 100,
+      borderColor: '#000',
+      borderWidth: 1,
+      borderRadius: 4,
+      marginBottom: 10,
+      paddingLeft: 10,
+      backgroundColor: '#FFFFFF90',
     },
     sendButton: {
-      backgroundColor: '#4B0082',
-      borderRadius: 25,
-      paddingVertical: 15,
-      paddingHorizontal: 20,
+      backgroundColor: '#4CAF50',
+      padding: 10,
+      borderRadius: 4,
       alignItems: 'center',
-      justifyContent: 'center',
+      marginTop: 20,
     },
     sendButtonText: {
       color: '#FFFFFF',
       fontSize: 18,
-      fontWeight: 'bold',
     },
 
 });
