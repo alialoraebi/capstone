@@ -218,7 +218,7 @@ export default StyleSheet.create({
       marginBottom: 5,
     },
     input: {
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF90',
       borderRadius: 4, 
       fontSize: 16,
       padding: 15,
@@ -427,7 +427,6 @@ export default StyleSheet.create({
     },
     contactInput: {
       height: 40,
-      borderColor: '#000',
       borderWidth: 1,
       borderRadius: 4,
       marginBottom: 10,
@@ -436,7 +435,6 @@ export default StyleSheet.create({
     },
     queContactInput:{
       height: 100,
-      borderColor: '#000',
       borderWidth: 1,
       borderRadius: 4,
       marginBottom: 10,
@@ -453,5 +451,6 @@ export default StyleSheet.create({
     sendButtonText: {
       color: '#FFFFFF',
       fontSize: 18,
+      fontWeight: 'bold',
     },
 });

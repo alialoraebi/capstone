@@ -67,10 +67,10 @@ const SettingsScreen = ({navigation}) => {
         
       </View>
         <TouchableOpacity style={styles.saveButton} /*onPress={handleSave}*/>
-          <Text style={styles.saveText}>SAVE</Text>
+          <Text style={styles.saveText}>Save</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-          <Text style={styles.logoutText}>LOG OUT</Text>
+          <Text style={styles.logoutText}>Log out</Text>
         </TouchableOpacity>
       </View>
   );
