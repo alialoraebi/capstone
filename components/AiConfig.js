@@ -3,16 +3,24 @@ import { View, TouchableOpacity, Text, TextInput, FlatList, ScrollView } from 'r
 import styles from './styles';
 import withGradient from './gradient';
 
-const mockMenuItems = [
-  { id: '1', category: 'Appetizer', name: 'Soup', price: '$4' },
-  { id: '2', category: 'Appetizer', name: 'Bread', price: '$2' },
-];
+const categories = ['Appetizer', 'Main Course', 'Dessert', 'Beverage'];
+const names = ['Soup', 'Bread', 'Steak', 'Pasta', 'Ice Cream', 'Coffee', 'Tea', 'Salad', 'Burger', 'Pizza'];
+const prices = ['2', '4', '6', '8', '10', '12', '14', '16', '18', '20'];
+
+const mockMenuItems = Array.from({ length: 10 }, (_, i) => ({
+  id: String(i + 1),
+  category: categories[Math.floor(Math.random() * categories.length)],
+  name: names[Math.floor(Math.random() * names.length)],
+  price: `$${prices[Math.floor(Math.random() * prices.length)]}`,
+}));
 
 const AiConfig = (props) => {
     const [editMode, setEditMode] = useState(false);
     const [selectedItems, setSelectedItems] = useState(new Set());
     const [newItem, setNewItem] = useState({ category: '', name: '', price: '' });
     const [menuItems, setMenuItems] = useState(mockMenuItems);
+    const [restaurantName, setRestaurantName] = useState('ABC Restaurant');
+    const [restaurantHours, setRestaurantHours] = useState('9am - 10pm');
 
   const handleToggleEdit = () => {
     setEditMode(!editMode);
@@ -60,6 +68,7 @@ const AiConfig = (props) => {
       )}
       {editMode ? (
         <>
+          
           <TextInput
             style={styles.menuItemInput}
             value={item.name}
@@ -79,7 +88,9 @@ const AiConfig = (props) => {
           <Text style={styles.menuItemText}>{item.price}</Text>
         </>
       )}
+      
     </View>
+    
   );
 
   const handleEditItem = (field, id, value) => {
@@ -99,13 +110,27 @@ const AiConfig = (props) => {
         <View style={styles.headerActions}>
           <TouchableOpacity onPress={() => setEditMode(false)}><Text style={styles.headerActionText}>View</Text></TouchableOpacity>
           <TouchableOpacity onPress={() => setEditMode(true)}><Text style={styles.headerActionText}>Edit</Text></TouchableOpacity>
-        </View>
+          <TouchableOpacity onPress={() => setEditMode(false)}><Text style={styles.headerActionText}>Save</Text></TouchableOpacity>
+
+        </View> 
       </View>
-      <Text style={styles.subTitle}>Name: "ABC Restaurant"</Text>
-      <Text style={styles.subTitle}>Hours: "9am - 10pm"</Text>
+      <Text style={styles.subTitle}>Name: {restaurantName}</Text>
+          <Text style={styles.subTitle}>Hours: {restaurantHours}</Text>
       <Text style={styles.menuTitle}>Menu Items:</Text>
       {editMode && (
         <View style={styles.actionContainer}>
+          <TextInput
+            style={styles.input}
+            value={restaurantName}
+            onChangeText={setRestaurantName}
+            placeholder="Restaurant Name"
+          />
+          <TextInput
+            style={styles.input}
+            value={restaurantHours}
+            onChangeText={setRestaurantHours}
+            placeholder="Restaurant Hours"
+          />
           <TextInput
             style={styles.input}
             value={newItem.category}
@@ -135,12 +160,14 @@ const AiConfig = (props) => {
           </View>
         </View>
       )}
+      
       <FlatList
         data={menuItems}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
       />
     </ScrollView>
+    
   );
 };
 
