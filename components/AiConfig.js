@@ -21,6 +21,7 @@ const AiConfig = (props) => {
     const [menuItems, setMenuItems] = useState(mockMenuItems);
     const [restaurantName, setRestaurantName] = useState('ABC Restaurant');
     const [restaurantHours, setRestaurantHours] = useState('9am - 10pm');
+    const [restaurantLocation, setRestaurantLocation] = useState('Toronto, ON');
 
   const handleToggleEdit = () => {
     setEditMode(!editMode);
@@ -115,8 +116,9 @@ const AiConfig = (props) => {
         </View> 
       </View>
       <Text style={styles.subTitle}>Name: {restaurantName}</Text>
-          <Text style={styles.subTitle}>Hours: {restaurantHours}</Text>
-      <Text style={styles.menuTitle}>Menu Items:</Text>
+      <Text style={styles.subTitle}>Hours: {restaurantHours}</Text>
+      <Text style={styles.subTitle}>Location: {restaurantLocation}</Text>
+      <Text style={styles.menuTitle}>{editMode ? "Change Info:" : "Menu Items:"}</Text>
       {editMode && (
         <View style={styles.actionContainer}>
           <TextInput
@@ -131,6 +133,13 @@ const AiConfig = (props) => {
             onChangeText={setRestaurantHours}
             placeholder="Restaurant Hours"
           />
+          <TextInput
+            style={styles.input}
+            value={restaurantLocation}
+            onChangeText={setRestaurantLocation}
+            placeholder="Restaurant Location"
+          />
+          <Text style={styles.menuTitle}>Add New Item:</Text>
           <TextInput
             style={styles.input}
             value={newItem.category}

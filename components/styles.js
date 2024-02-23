@@ -218,12 +218,13 @@ export default StyleSheet.create({
       marginBottom: 5,
     },
     input: {
-      backgroundColor: '#FFFFFF90',
-      borderRadius: 4, 
-      fontSize: 16,
-      padding: 15,
-      marginBottom: 20,
-      border: '1px solid #ddd', 
+      "backgroundColor": "#FFFFFF90",
+      "borderRadius": 4,
+      "fontSize": 16,
+      "padding": 15,
+      "marginBottom": 20,
+      "borderWidth": 1,
+      "borderColor": "#ddd" 
     },
     userpassTitle: {
       fontSize: 20,

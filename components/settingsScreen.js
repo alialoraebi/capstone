@@ -8,7 +8,7 @@ const SettingsScreen = ({navigation}) => {
 
   const [username, setUsername] = useState('MakeUpRestaurant');
   const [password, setPassword] = useState('password'); 
-  const [location, setLocation] = useState('Toronto, ON');
+  //const [location, setLocation] = useState('Toronto, ON');
   
   const { handleLogout } = useAuth();
 
@@ -58,12 +58,12 @@ const SettingsScreen = ({navigation}) => {
           secureTextEntry
           autoCapitalize="none"
         />
-        <Text style={styles.inputLabel}>Location</Text>
+        {/* <Text style={styles.inputLabel}>Location</Text>
         <TextInput
           style={styles.input}
           value={location}
           onChangeText={setLocation}
-        />
+        /> */}
         
       </View>
         <TouchableOpacity style={styles.saveButton} /*onPress={handleSave}*/>

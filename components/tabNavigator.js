@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome'; 
-import StatisticsScreen from './statisticsScreen';
+import DashboardScreen from './dashboardScreen';
 import ContactScreen from './contactScreen';
 import HomeScreen from './homeScreen'; 
 import SettingsStackNavigator from './SettingsStackNav';
@@ -17,7 +17,7 @@ const MyTabs = () => {
           let iconName;
           if (route.name === 'Home') {
             iconName = 'home';
-          } else if (route.name === 'Statistics') {
+          } else if (route.name === 'Dashboard') {
             iconName = 'bar-chart';
           } else if (route.name === 'Settings') {
             iconName = 'cogs';
@@ -32,7 +32,7 @@ const MyTabs = () => {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
-      <Tab.Screen name="Statistics" component={StatisticsScreen} options={{ headerShown: false }} />
+      <Tab.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false }} />
       <Tab.Screen name="Settings" component={SettingsStackNavigator} options={{headerShown: false}}/>
       <Tab.Screen name="Contact" component={ContactScreen} options={{ headerShown: false }} />
     </Tab.Navigator>

@@ -4,14 +4,7 @@ import styles from './styles';
 import withGradient from './gradient';
 
 const StatisticsScreen = (props) => {
-    const handleAdd = () => {
-        // Logic for adding item
-    };
-
-    const handleDelete = () => {
-        // Logic for deleting item
-    };
-
+    
     return (
         <View style={styles.container}>
             <View style={styles.header}>
