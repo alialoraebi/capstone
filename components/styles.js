@@ -119,12 +119,19 @@ export default StyleSheet.create({
       backgroundColor: '#8E44AD', 
       borderRadius: 10,
       padding: 20,
-      marginBottom: 20,
+      marginBottom: 40,
       alignItems: 'center',
       justifyContent: 'center',
       width: '40%',
-      height: 250,
-
+      height: 200,
+      shadowColor: '#fff', 
+      shadowOffset: {
+        width: -6, 
+        height: 8,
+      },
+      shadowOpacity: 0.25, 
+      shadowRadius: 3.84, 
+      elevation: 5, 
     },
     statsNumber: {
       fontSize: 24,
@@ -203,7 +210,7 @@ export default StyleSheet.create({
       padding: 25,
     },
     inputContainer: {
-      marginBottom: 20,
+      marginBottom: 100,
     },
     inputLabel: {
       fontSize: 18,
@@ -446,6 +453,14 @@ export default StyleSheet.create({
       color: '#FFFFFF',
       fontSize: 18,
       fontWeight: 'bold',
+    },
+    contactInfo: {
+      marginTop: 30,
+      fontSize: 18,
+      color: 'white', 
+      alignSelf: 'flex-start',
+      textDecorationLine: 'underline',
+
     },
     //Dashboard Screen
     dashboardContainer: {

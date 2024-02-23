@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Linking, Alert } from 'react-native';
 import withGradient from './gradient';
 import axios from 'axios';
 import styles from './styles';
@@ -23,6 +23,30 @@ const contactScreen = () => {
     } catch (error) {
       console.error('Error sending question:', error);
     }
+  };
+
+  const handlePhonePress = () => {
+    Alert.alert(
+      'Dial Number',
+      'Do you want to call 1-800-123-4567?',
+      [
+        {text: 'Cancel', onPress: () => {}, style: 'cancel'},
+        {text: 'OK', onPress: () => Linking.openURL(`tel:1-800-123-4567`)},
+      ],
+      { cancelable: false }
+    );
+  };
+
+  const handleEmailPress = () => {
+    Alert.alert(
+      'Send Email',
+      'Do you want to send an email to info@aicallassist.ca?',
+      [
+        {text: 'Cancel', onPress: () => {}, style: 'cancel'},
+        {text: 'OK', onPress: () => Linking.openURL('mailto:info@aicallassist.ca')},
+      ],
+      { cancelable: false }
+    );
   };
 
   return (
@@ -51,7 +75,11 @@ const contactScreen = () => {
           <TouchableOpacity style={styles.sendButton} onPress={handleSendQuestion}>
             <Text style={styles.sendButtonText}>Send</Text>
           </TouchableOpacity>
+
+          <Text style={styles.contactInfo} onPress={handlePhonePress}>Phone: 1-800-123-4567</Text>
+          <Text style={styles.contactInfo} onPress={handleEmailPress}>Email: info@aicallassist.ca</Text>
         </View>
+
     </View>
   );
 };
