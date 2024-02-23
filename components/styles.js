@@ -1,4 +1,3 @@
-// styles.js
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -89,33 +88,24 @@ export default StyleSheet.create({
       textDecorationLine: 'underline'
     },
     // Home Screen
-    menuContainer: {
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-      width: '100%',
-      marginBottom: 20,
-    },
-    menuButton: {
-      backgroundColor: '#8E44AD', 
-      paddingVertical: 10,
-      paddingHorizontal: 20,
-      borderRadius: 5,
-      marginHorizontal: 5, 
-    },
-    menuText: {
-      color: '#FFF',
-      fontSize: 16,
-      fontWeight: 'bold',
-      textAlign: 'center',
-    },
-    container: {
+    homeContainer: {
       flexGrow: 1,
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
     },
-    headerContainer: {
-      marginTop: 10,
-      backgroundColor: '#7D3C98', 
+    homeHeaderContainer: {
+      width: '100%', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      padding: 10,
+    },
+    homeHeaderTitle: {
+      fontSize: 28,
+      fontWeight: 'bold',
+      color: '#fff',
+      textAlign: 'center',
+      marginTop:40,
+      marginBottom: 60,
     },
     statsContainer: {
       alignSelf: 'stretch',
@@ -128,10 +118,19 @@ export default StyleSheet.create({
       backgroundColor: '#8E44AD', 
       borderRadius: 10,
       padding: 20,
-      marginBottom: 20,
+      marginBottom: 40,
       alignItems: 'center',
       justifyContent: 'center',
       width: '40%',
+      height: 200,
+      shadowColor: '#fff', 
+      shadowOffset: {
+        width: -6, 
+        height: 8,
+      },
+      shadowOpacity: 0.25, 
+      shadowRadius: 3.84, 
+      elevation: 5, 
     },
     statsNumber: {
       fontSize: 24,
@@ -210,7 +209,7 @@ export default StyleSheet.create({
       padding: 25,
     },
     inputContainer: {
-      marginBottom: 20,
+      marginBottom: 100,
     },
     inputLabel: {
       fontSize: 18,
@@ -316,14 +315,23 @@ export default StyleSheet.create({
       marginTop: 10,
       marginLeft: 10,
       color: '#E8D8C4',
-
     },
     menuItem: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      padding: 10,
+      alignItems: 'center',
+      paddingVertical: 10,
       borderBottomWidth: 1,
       borderBottomColor: '#B7C9F2',
+    },
+    categoryText: {
+      flex: 3, 
+    },
+    nameText: {
+      flex: 3, 
+    },
+    priceText: {
+      width: 40,
     },
     menuItemText: {
       fontSize: 16,
@@ -415,8 +423,8 @@ export default StyleSheet.create({
       padding: 20,
     },
     contactTitle: {
-      paddingTop: 20,
-      fontSize: 30,
+      marginTop: 30,
+      fontSize: 28,
       fontWeight: 'bold',
       color: 'white', 
       alignSelf: 'center',
@@ -454,71 +462,78 @@ export default StyleSheet.create({
       fontSize: 18,
       fontWeight: 'bold',
     },
+    contactInfo: {
+      marginTop: 30,
+      fontSize: 18,
+      color: 'white', 
+      alignSelf: 'flex-start',
+      textDecorationLine: 'underline',
 
-
-  // Dashboard Screen
-    dateContainer: {
+    },
+    //Dashboard Screen
+    dashboardContainer: {
       flex: 1,
-      alignItems: 'center', // Center the content horizontally
-      paddingTop: 20, // Add some top padding
-  },
-  // Styles for the circle displaying the date
-  dateCircle: {
-      width: 100,
-      height: 100,
-      borderRadius: 50,
-      backgroundColor: '#CCCCCC', // Gray color
+      padding: 20,
+    },
+    dashboardHeader: {
+      width: '100%', 
       justifyContent: 'center',
       alignItems: 'center',
-      marginBottom: 20, // Adjust as needed
-  },
-  dateText: {
-      color: 'Black', // White text color
-      fontSize: 16,
+    },
+    dashboardHeaderTitle: {
+      fontSize: 28,
       fontWeight: 'bold',
-  },
-  statsGrid: {
-    alignSelf: 'stretch',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    flexWrap: 'wrap',
-    marginTop: 10,
+      color: 'white',
+      textAlign: 'center',
+      marginTop: 30,
+      marginBottom: 20,
     },
-    statsCircle: {
-        width: 150,
-        height: 150,
-        borderRadius: 75,
-        backgroundColor: '#CCCCCC',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 10,
+    date: {
+      color: '#FFF',
+      fontSize: 32,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginBottom: 20,
     },
-    statsTextDash: {
-        color: 'Black',
-        fontSize: 16,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    bottomBox: {
-      position: 'relative',
-      bottom: 0,
-      width: '40%',
-      height: '30%',
-      backgroundColor: '#CCCCCC',
-      padding: 40,
+    dashboardStatsContainer: {
+      backgroundColor: '#FFF',
       borderRadius: 10,
-  },
-  
-  bottomTextLeft: {
-    textAlign: 'left',
-      color: 'Black',
+      padding: 10,
+      marginBottom: 20,
+    },
+    dashboardStatsBox: {
+      marginBottom: 10,
+    },
+    dashboardStatsTitle: {
+      color: '#000',
       fontSize: 16,
+    },
+    dashboardStatsValue: {
+      color: '#7D3C98',
+      fontSize: 20,
       fontWeight: 'bold',
-  },
-  bottomTextRight: {
-    textAlign: 'right',
-      color: 'Black',
-      fontSize: 16,
+    },
+    lastCallSummaryTitle: {
+      color: '#FFF',
+      fontSize: 20,
       fontWeight: 'bold',
-  },
+      marginBottom: 10,
+    },
+    lastCallSummary: {
+      backgroundColor: '#FFF',
+      borderRadius: 10,
+      padding: 10,
+    },
+    lastCallNumber: {
+      color: '#000',
+      marginBottom: 5,
+    },
+    lastCallMessage: {
+      color: '#000',
+      marginBottom: 5,
+    },
+    lastCallResponse: {
+      color: '#7D3C98',
+      fontWeight: 'bold',
+    },
 });
