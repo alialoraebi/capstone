@@ -22,11 +22,26 @@ const LoginScreen = (props) => {
 
   const USER_CREDENTIALS = { user: 'ADMIN', pass: 'PASSWORD' };
 
-  const attemptLogin = () => {
-    if (username === USER_CREDENTIALS.user && password === USER_CREDENTIALS.pass) {
-      handleLogin();
-    } else {
-      alert('Incorrect username or password!');
+  const attemptLogin = async () =>  {
+    try {
+      const response = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        handleLogin(data.token); // Call the handleLogin function from the AuthContext
+        console.log(data.message); // Display success message
+      } else {
+        const error = await response.text();
+        console.error(error); // Display error message
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
   };
 
@@ -75,3 +90,4 @@ const LoginScreen = (props) => {
 };
 
 export default withGradient(LoginScreen);
+

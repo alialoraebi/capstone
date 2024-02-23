@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LinearGradient } from 'expo-linear-gradient';
+import MyTabs from './components/tabNavigator';
 import LoginScreen from './components/loginScreen';
-import HomeScreen from './components/HomeScreen.js';
-import AboutScreen from './components/AboutScreen.js'; // Make sure to create this component
-import StatisticsScreen from './components/StatisticsScreen.js'; // Make sure to create this component
-import SettingsScreen from './components/SettingScreen.js'; // Make sure to create this component
+import HomeScreen from './components/HomeScreen';
+import AboutScreen from './components/AboutScreen'; 
+import SettingsScreen from './components/SettingScreen';
+import AiConfig from './components/AiConfig';
 import styles from './components/styles';
 import { AuthProvider, useAuth } from './components/AuthContext'; 
-import AiConfig from './components/AiConfig.js';
-import MyTabs from './components/tabNavigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,11 +23,10 @@ const AppNavigation = () => {
       ) : (
         <Stack.Navigator>
           <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Settings" component={SettingsScreen} />
-          <Stack.Screen name="About" component={AboutScreen} />
-          <Stack.Screen name="Statistics" component={StatisticsScreen} />
-          <Stack.Screen name="AiConfig" component={AiConfig} />
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="AiConfig" component={AiConfig} options={{ headerShown: false }} />
+          <Stack.Screen name="About" component={AboutScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
       )}
     </NavigationContainer>

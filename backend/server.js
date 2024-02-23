@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 const DB_HOST="cluster0.aggzi5g.mongodb.net"
 const DB_USER="alvaroaguirremeza"
 const DB_PASSWORD="Charmander3"
-const DB_NAME="users"
+const DB_NAME="capstone-databse"
 const DB_CONNECTION_STRING = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`;
 mongoose.connect(DB_CONNECTION_STRING, {
   useNewUrlParser: true,
@@ -37,10 +37,9 @@ app.post('/login', async (req, res) => {
 
     const db = client.db();
     const usersCollection = db.collection('users');
-
     // Check if the user exists in the database
     const user = await usersCollection.findOne({ username, password });
-
+   
     if (user) {
       res.status(200).send({ message: 'Login successful' });
     } else {
@@ -50,7 +49,7 @@ app.post('/login', async (req, res) => {
     await client.close();
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).send({ message: 'Internal server error connection' });
+    res.status(500).send({ message: 'Internal server error connection :(' });
   }
 });
 
