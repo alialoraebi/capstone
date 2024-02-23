@@ -14,7 +14,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const LoginScreen = (props) => {
+const LoginScreen = () => {
   const { handleLogin } = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

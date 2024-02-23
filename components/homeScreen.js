@@ -3,7 +3,7 @@ import { ScrollView, View, Text } from 'react-native';
 import withGradient from './gradient';
 import styles from './styles';
 
-const HomeScreen = (props) => {
+const HomeScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.statsContainer}>

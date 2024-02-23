@@ -2,7 +2,7 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  // Main Screebs
+  // Main Screens
     gradient: {
         position: 'absolute',
         top: 0,
@@ -153,14 +153,13 @@ export default StyleSheet.create({
     aboutScreenContentContainer: {
       flex: 1,
       padding: 30,
+      backgroundColor: '#FFFFFF',
     },
     aboutScreenTitle: {
       fontSize: 26,
       fontWeight: 'bold',
       color: '#000',
       paddingTop: 20,
-      alignSelf: 'center',
-      marginVertical: 10,
     },
     aboutScreenSubtitle: {
       fontSize: 22,
@@ -199,82 +198,85 @@ export default StyleSheet.create({
       fontSize: 16,
     },
     // Settings Screen
-    title: {
+    settingsTitle: {
       fontSize: 28,
       fontWeight: 'bold',
-      color: 'white',
+      color: 'white', 
       alignSelf: 'center',
-      marginBottom: 30,
+      marginBottom: 10,
     },
     settingsContainer: {
       paddingTop: 50,
       padding: 25,
     },
     inputContainer: {
-      marginBottom: 30,
+      marginBottom: 20,
     },
     inputLabel: {
       fontSize: 18,
-      color: 'white',
-      marginBottom: 10,
+      color: 'white', 
+      marginBottom: 5,
     },
     input: {
-      backgroundColor: 'white',
-      borderRadius: 20,
-      fontSize: 16,
-      padding: 15,
+      "backgroundColor": "#FFFFFF90",
+      "borderRadius": 4,
+      "fontSize": 16,
+      "padding": 15,
+      "marginBottom": 20,
+      "borderWidth": 1,
+      "borderColor": "#ddd" 
+    },
+    userpassTitle: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: 'white', 
       marginBottom: 20,
-      elevation: 3, // for Android shadow
-      shadowOpacity: 0.3, // for iOS shadow
-      shadowRadius: 3,
-      shadowOffset: { width: 0, height: 2 },
     },
-    buttonContainer: {
-      flexDirection: 'row',
+    settingsButtonContainer: {
+      flexDirection: 'column',
       justifyContent: 'space-around',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       marginBottom: 30,
+      
     },
-    roundButton: {
-      backgroundColor: 'white',
-      width: 110,
-      height: 110,
-      borderRadius: 60,
+    settingsButton: {
+      padding: 10,
+      marginBottom: 0,
       justifyContent: 'center',
-      alignItems: 'center',
-      elevation: 3,
-      shadowOpacity: 0.3, 
-      shadowRadius: 3,
-      shadowOffset: { width: 0, height: 2 },
-    },
-    largeRoundButton: {
-      backgroundColor: 'white',
-      width: 120,
-      height: 120,
-      borderRadius: 60,
-      justifyContent: 'center',
-      alignItems: 'center',
-      elevation: 3, 
-      shadowOpacity: 0.3, 
-      shadowRadius: 3,
-      shadowOffset: { width: 0, height: 2 },
+      width: '100%',
+      alignItems: 'flex-start',
+      borderBottomWidth: 1,
+      borderBottomColor: 'white',
     },
     buttonText: {
-      color: '#7D3C98',
+      color: '#DCFFB7', 
       fontSize: 16,
       textAlign: 'center',
     },
-    logoutButton: {
-      backgroundColor: '#8E44AD',
+    saveButton: {
+      backgroundColor: '#4CAF50',
       padding: 15,
-      borderRadius: 5,
+      borderRadius: 4, 
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: 10,
+    },
+    saveText: {
+      color: 'white',
+      fontSize: 18,
+      fontWeight: 'bold',      
+    },
+    logoutButton: {
+      backgroundColor: '#D04848',
+      padding: 15,
+      borderRadius: 4, 
       justifyContent: 'center',
       alignItems: 'center',
     },
     logoutText: {
       color: 'white',
       fontSize: 18,
-      fontWeight: 'bold',
+      fontWeight: 'bold',      
     },
     //AI Configuration Screen
     AIConfigContainer: {
@@ -326,6 +328,12 @@ export default StyleSheet.create({
     menuItemText: {
       fontSize: 16,
       color: 'white',
+    },
+    actionRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      padding: 10,
+      paddingHorizontal: 20,
     },
     buttonsRow: {
       flexDirection: 'row',
@@ -401,42 +409,115 @@ export default StyleSheet.create({
       color: '#333', 
       lineHeight: 24,
     },
-    messageButton: {
-      backgroundColor: '#4B0082', 
-      paddingVertical: 15,
-      paddingHorizontal: 20,
-      borderRadius: 25,
-      alignItems: 'center',
-      justifyContent: 'center', 
-      marginTop: 20,
+    //Contact Screen
+    contactScreenContainer: {
+      flex: 1,
+      padding: 20,
     },
-    messageButtonText: {
-      color: '#FFFFFF',
-      fontSize: 18,
+    contactTitle: {
+      paddingTop: 20,
+      fontSize: 30,
       fontWeight: 'bold',
+      color: 'white', 
+      alignSelf: 'center',
+      marginVertical: 10,
     },
-    inputFieldsContainer: {
+    contactInputContainer: {
       marginTop: 20,
+
     },
-    inputField: {
-      backgroundColor: '#F0F0F0',
-      borderRadius: 10,
-      paddingHorizontal: 15,
-      paddingVertical: 10,
-      marginBottom: 15,
+    contactInput: {
+      height: 40,
+      borderWidth: 1,
+      borderRadius: 4,
+      marginBottom: 10,
+      paddingLeft: 10,
+      backgroundColor: '#FFFFFF90',
+    },
+    queContactInput:{
+      height: 100,
+      borderWidth: 1,
+      borderRadius: 4,
+      marginBottom: 10,
+      paddingLeft: 10,
+      backgroundColor: '#FFFFFF90',
     },
     sendButton: {
-      backgroundColor: '#4B0082',
-      borderRadius: 25,
-      paddingVertical: 15,
-      paddingHorizontal: 20,
+      backgroundColor: '#4CAF50',
+      padding: 10,
+      borderRadius: 4,
       alignItems: 'center',
-      justifyContent: 'center',
+      marginTop: 20,
     },
     sendButtonText: {
       color: '#FFFFFF',
       fontSize: 18,
       fontWeight: 'bold',
     },
-
+    //Dashboard Screen
+    dashboardContainer: {
+      flex: 1,
+      padding: 20,
+    },
+    dashboardHeader: {
+      width: '100%', 
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    dashboardHeaderTitle: {
+      fontSize: 28,
+      fontWeight: 'bold',
+      color: 'white',
+      textAlign: 'center',
+      marginTop: 30,
+      marginBottom: 20,
+    },
+    date: {
+      color: '#FFF',
+      fontSize: 32,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginBottom: 20,
+    },
+    dashboardStatsContainer: {
+      backgroundColor: '#FFF',
+      borderRadius: 10,
+      padding: 10,
+      marginBottom: 20,
+    },
+    dashboardStatsBox: {
+      marginBottom: 10,
+    },
+    dashboardStatsTitle: {
+      color: '#000',
+      fontSize: 16,
+    },
+    dashboardStatsValue: {
+      color: '#7D3C98',
+      fontSize: 20,
+      fontWeight: 'bold',
+    },
+    lastCallSummaryTitle: {
+      color: '#FFF',
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginBottom: 10,
+    },
+    lastCallSummary: {
+      backgroundColor: '#FFF',
+      borderRadius: 10,
+      padding: 10,
+    },
+    lastCallNumber: {
+      color: '#000',
+      marginBottom: 5,
+    },
+    lastCallMessage: {
+      color: '#000',
+      marginBottom: 5,
+    },
+    lastCallResponse: {
+      color: '#7D3C98',
+      fontWeight: 'bold',
+    },
 });
