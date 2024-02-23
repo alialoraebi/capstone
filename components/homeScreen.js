@@ -1,11 +1,14 @@
 import React from 'react';
-import { ScrollView, View, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import withGradient from './gradient';
 import styles from './styles';
 
 const HomeScreen = () => {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.homeContainer}>
+      <View style={styles.homeHeaderContainer}>
+        <Text style={styles.homeHeaderTitle}>Home</Text>
+      </View>
       <View style={styles.statsContainer}>
         <View style={styles.statsBox}>
           <Text style={styles.statsNumber}>3</Text>
@@ -24,7 +27,7 @@ const HomeScreen = () => {
           <Text style={styles.statsText}>Unread Notification</Text>
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 

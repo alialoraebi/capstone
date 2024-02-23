@@ -89,33 +89,24 @@ export default StyleSheet.create({
       textDecorationLine: 'underline'
     },
     // Home Screen
-    menuContainer: {
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-      width: '100%',
-      marginBottom: 20,
-    },
-    menuButton: {
-      backgroundColor: '#8E44AD', 
-      paddingVertical: 10,
-      paddingHorizontal: 20,
-      borderRadius: 5,
-      marginHorizontal: 5, 
-    },
-    menuText: {
-      color: '#FFF',
-      fontSize: 16,
-      fontWeight: 'bold',
-      textAlign: 'center',
-    },
-    container: {
+    homeContainer: {
       flexGrow: 1,
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
     },
-    headerContainer: {
-      marginTop: 10,
-      backgroundColor: '#7D3C98', 
+    homeHeaderContainer: {
+      width: '100%', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      padding: 10,
+    },
+    homeHeaderTitle: {
+      fontSize: 28,
+      fontWeight: 'bold',
+      color: '#fff',
+      textAlign: 'center',
+      marginTop:40,
+      marginBottom: 60,
     },
     statsContainer: {
       alignSelf: 'stretch',
@@ -132,6 +123,8 @@ export default StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       width: '40%',
+      height: 250,
+
     },
     statsNumber: {
       fontSize: 24,
@@ -415,7 +408,7 @@ export default StyleSheet.create({
       padding: 20,
     },
     contactTitle: {
-      paddingTop: 20,
+      marginTop: 30,
       fontSize: 30,
       fontWeight: 'bold',
       color: 'white', 
