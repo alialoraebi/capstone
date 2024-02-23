@@ -454,4 +454,70 @@ export default StyleSheet.create({
       fontSize: 18,
       fontWeight: 'bold',
     },
+    //Dashboard Screen
+    dashboardContainer: {
+      flex: 1,
+      padding: 20,
+    },
+    dashboardHeader: {
+      width: '100%', 
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    dashboardHeaderTitle: {
+      fontSize: 28,
+      fontWeight: 'bold',
+      color: 'white',
+      textAlign: 'center',
+      marginTop: 30,
+      marginBottom: 20,
+    },
+    date: {
+      color: '#FFF',
+      fontSize: 32,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginBottom: 20,
+    },
+    dashboardStatsContainer: {
+      backgroundColor: '#FFF',
+      borderRadius: 10,
+      padding: 10,
+      marginBottom: 20,
+    },
+    dashboardStatsBox: {
+      marginBottom: 10,
+    },
+    dashboardStatsTitle: {
+      color: '#000',
+      fontSize: 16,
+    },
+    dashboardStatsValue: {
+      color: '#7D3C98',
+      fontSize: 20,
+      fontWeight: 'bold',
+    },
+    lastCallSummaryTitle: {
+      color: '#FFF',
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginBottom: 10,
+    },
+    lastCallSummary: {
+      backgroundColor: '#FFF',
+      borderRadius: 10,
+      padding: 10,
+    },
+    lastCallNumber: {
+      color: '#000',
+      marginBottom: 5,
+    },
+    lastCallMessage: {
+      color: '#000',
+      marginBottom: 5,
+    },
+    lastCallResponse: {
+      color: '#7D3C98',
+      fontWeight: 'bold',
+    },
 });
