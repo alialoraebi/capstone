@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text, TextInput } from 'react-native';
 import styles from './styles';
 import withGradient from './gradient';
 
-const StatisticsScreen = (props) => {
+const StatisticsScreen = () => {
     
     return (
         <View style={styles.container}>
@@ -30,10 +30,10 @@ const StatisticsScreen = (props) => {
                 />
             </View>
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.addButton} onPress={handleAdd}>
+                <TouchableOpacity style={styles.addButton} /*onPress={handleAdd}*/>
                     <Text style={styles.buttonText}>ADD</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
+                <TouchableOpacity style={styles.deleteButton} /*onPress={handleDelete}*/>
                     <Text style={styles.buttonText}>DELETE</Text>
                 </TouchableOpacity>
             </View>
