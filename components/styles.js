@@ -416,7 +416,7 @@ export default StyleSheet.create({
     },
     contactTitle: {
       marginTop: 30,
-      fontSize: 30,
+      fontSize: 28,
       fontWeight: 'bold',
       color: 'white', 
       alignSelf: 'center',
