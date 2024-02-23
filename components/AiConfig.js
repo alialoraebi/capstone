@@ -67,32 +67,30 @@ const AiConfig = (props) => {
           <Text>{selectedItems.has(item.id) ? '🔘' : '⚪️'}</Text>
         </TouchableOpacity>
       )}
+      <Text style={[styles.categoryText, styles.menuItemText]}>{item.category}</Text>
       {editMode ? (
-        <>
-          
-          <TextInput
-            style={styles.menuItemInput}
-            value={item.name}
-            onChangeText={text => handleEditItem('name', item.id, text)}
-          />
-          <TextInput
-            style={styles.menuItemInput}
-            value={item.price.replace('$', '')}
-            onChangeText={text => handleEditItem('price', item.id, text)}
-            keyboardType="numeric"
-          />
-        </>
+        <TextInput
+          style={styles.nameText}
+          value={item.name}
+          onChangeText={text => handleEditItem('name', item.id, text)}
+        />
       ) : (
-        <>
-          <Text style={styles.menuItemText}>{item.category}</Text>
-          <Text style={styles.menuItemText}>{item.name}</Text>
-          <Text style={styles.menuItemText}>{item.price}</Text>
-        </>
+        <Text style={[styles.nameText, styles.menuItemText]}>{item.name}</Text>
       )}
-      
+      {editMode ? (
+        <TextInput
+          style={styles.priceText}
+          value={item.price.replace('$', '')}
+          onChangeText={text => handleEditItem('price', item.id, text)}
+          keyboardType="numeric"
+        />
+      ) : (
+        <Text style={[styles.priceText, styles.menuItemText]}>{item.price}</Text>
+      )}
     </View>
-    
   );
+
+
 
   const handleEditItem = (field, id, value) => {
     const updatedItems = menuItems.map(item => {

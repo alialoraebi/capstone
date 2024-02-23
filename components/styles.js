@@ -316,14 +316,23 @@ export default StyleSheet.create({
       marginTop: 10,
       marginLeft: 10,
       color: '#E8D8C4',
-
     },
     menuItem: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      padding: 10,
+      alignItems: 'center',
+      paddingVertical: 10,
       borderBottomWidth: 1,
       borderBottomColor: '#B7C9F2',
+    },
+    categoryText: {
+      flex: 3, 
+    },
+    nameText: {
+      flex: 3, 
+    },
+    priceText: {
+      width: 40,
     },
     menuItemText: {
       fontSize: 16,
