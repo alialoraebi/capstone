@@ -236,8 +236,7 @@ export default StyleSheet.create({
       flexDirection: 'column',
       justifyContent: 'space-around',
       alignItems: 'flex-start',
-      marginBottom: 30,
-      
+      marginBottom: 30,  
     },
     settingsButton: {
       padding: 10,
