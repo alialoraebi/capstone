@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, Text, TextInput, FlatList, ScrollView } from 'react-native';
 import styles from './styles';
 import withGradient from './gradient';
-
+import axios from 'axios'; 
+/*
 const categories = ['Appetizer', 'Main Course', 'Dessert', 'Beverage'];
 const names = ['Soup', 'Bread', 'Steak', 'Pasta', 'Ice Cream', 'Coffee', 'Tea', 'Salad', 'Burger', 'Pizza'];
 const prices = ['2', '4', '6', '8', '10', '12', '14', '16', '18', '20'];
@@ -12,17 +13,36 @@ const mockMenuItems = Array.from({ length: 10 }, (_, i) => ({
   category: categories[Math.floor(Math.random() * categories.length)],
   name: names[Math.floor(Math.random() * names.length)],
   price: `$${prices[Math.floor(Math.random() * prices.length)]}`,
-}));
+}));*/
 
 const AiConfig = (props) => {
-    const [editMode, setEditMode] = useState(false);
-    const [selectedItems, setSelectedItems] = useState(new Set());
-    const [newItem, setNewItem] = useState({ category: '', name: '', price: '' });
-    const [menuItems, setMenuItems] = useState(mockMenuItems);
-    const [restaurantName, setRestaurantName] = useState('ABC Restaurant');
-    const [restaurantHours, setRestaurantHours] = useState('9am - 10pm');
-    const [restaurantLocation, setRestaurantLocation] = useState('Toronto, ON');
+  const [editMode, setEditMode] = useState(false);
+  const [selectedItems, setSelectedItems] = useState(new Set());
+  const [newItem, setNewItem] = useState({ category: '', name: '', price: '' });
+  const [menuItems, setMenuItems] = useState([]);
+  const [restaurantName, setRestaurantName] = useState('');
+  const [restaurantHours, setRestaurantHours] = useState('');
+  const [restaurantLocation, setRestaurantLocation] = useState('');
 
+  useEffect(() => {
+      fetchMenuItems();
+  }, []);
+
+  const fetchMenuItems = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/showDishes');
+      const formattedMenuItems = response.data.dishes.map(item => ({
+        id: item._id,
+        category: item.category,
+        name: item.name,
+        price: item.price,
+      }));
+      setMenuItems(formattedMenuItems);
+      console.log('Menu items:', formattedMenuItems);
+    } catch (error) {
+      console.error('Error fetching menu items:', error);
+    }
+  };
   const handleToggleEdit = () => {
     setEditMode(!editMode);
   };
@@ -37,27 +57,43 @@ const AiConfig = (props) => {
     setSelectedItems(newSelectedItems);
   };
 
-  const handleAddNewItem = () => {
+  const handleAddNewItem = async () => {
     if (newItem.category && newItem.name && newItem.price) {
-      setMenuItems([
-        ...menuItems,
-        {
-          id: String(menuItems.length + 1), 
+      try {
+        const response = await axios.post('http://localhost:3000/addDish', {
           category: newItem.category,
           name: newItem.name,
-          price: `$${newItem.price}`,
-        },
-      ]);
-      setNewItem({ category: '', name: '', price: '' });
+          price: parseInt(newItem.price),
+        });
+  
+        console.log(response.data.message); // Log the response message
+        // Optionally, you can handle success response here
+  
+        // Clear the newItem state after successfully adding the dish
+        setNewItem({ category: '', name: '', price: '' });
+      } catch (error) {
+        console.error('Error adding dish:', error);
+        // Optionally, you can handle error response here
+      }
     } else {
       console.log('Please fill all fields');
     }
   };
 
-  const handleDeleteSelected = () => {
-    const newMenuItems = menuItems.filter(item => !selectedItems.has(item.id));
-    setMenuItems(newMenuItems);
-    setSelectedItems(new Set());
+  const handleDeleteSelected = async () => {
+    try {
+      // Iterate over the selected items
+      for (const id of selectedItems) {
+        // Send a DELETE request for each selected item
+        await axios.delete(`http://localhost:3000/deleteDish/${id}`);
+      }
+  
+      // Clear the selected items state after successful deletion
+      setSelectedItems(new Set());
+    } catch (error) {
+      console.error('Error deleting dishes:', error);
+      // Optionally, you can handle error response here
+    }
   };
 
   const renderItem = ({ item }) => (
@@ -77,7 +113,7 @@ const AiConfig = (props) => {
           />
           <TextInput
             style={styles.menuItemInput}
-            value={item.price.replace('$', '')}
+
             onChangeText={text => handleEditItem('price', item.id, text)}
             keyboardType="numeric"
           />
@@ -86,7 +122,7 @@ const AiConfig = (props) => {
         <>
           <Text style={styles.menuItemText}>{item.category}</Text>
           <Text style={styles.menuItemText}>{item.name}</Text>
-          <Text style={styles.menuItemText}>{item.price}</Text>
+          <Text style={styles.menuItemText}>${item.price}</Text>
         </>
       )}
       
@@ -94,14 +130,18 @@ const AiConfig = (props) => {
     
   );
 
-  const handleEditItem = (field, id, value) => {
-    const updatedItems = menuItems.map(item => {
-      if (item.id === id) {
-        return { ...item, [field]: field === 'price' ? `$${value}` : value };
-      }
-      return item;
-    });
-    setMenuItems(updatedItems);
+  const handleEditItem = async (field, id, value) => {
+   value = parseInt(value);
+    try {
+      // Make a PUT request to update the dish on the server
+      await axios.put(`http://localhost:3000/updateDishPrice/${id}`, {
+        [field]: value // Send the updated field (name or price) to the server
+      });
+      console.log('Dish updated successfully');
+    } catch (error) {
+      console.error('Error updating dish:', error);
+      // Optionally, you can handle the error here
+    }
   };
 
   return (
@@ -171,9 +211,9 @@ const AiConfig = (props) => {
       )}
       
       <FlatList
-        data={menuItems}
-        keyExtractor={(item) => item.id}
-        renderItem={renderItem}
+         data={menuItems}
+         keyExtractor={(item) => item.id}
+         renderItem={renderItem}
       />
     </ScrollView>
     
