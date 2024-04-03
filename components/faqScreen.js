@@ -44,4 +44,4 @@ const FAQScreen = () => {
   );
 };
 
-export default withGradient(FAQScreen);
+export default FAQScreen;
