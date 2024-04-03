@@ -370,19 +370,19 @@ export default StyleSheet.create({
       paddingTop: 20,
       fontSize: 30,
       fontWeight: 'bold',
-      color: '#600060', 
+      color: 'Black', 
       alignSelf: 'center',
       marginVertical: 10,
     },
     FAQheader: {
       fontSize: 24,
       fontWeight: 'bold',
-      color: '#600060', 
+      color: 'Black', 
       marginBottom: 10,
     },
     FAQsubHeader: {
       fontSize: 16,
-      color: '#600060', 
+      color: 'Black', 
       marginBottom: 20,
     },
     searchContainer: {
@@ -402,6 +402,7 @@ export default StyleSheet.create({
     },
     faqContainer: {
       marginBottom: 20,  
+      backgroundColor: '#FFFFFF',
     },
     faqItem: {
       marginBottom: 20, 
