@@ -64,7 +64,7 @@ const AiConfig = (props) => {
     <View style={styles.menuItem}>
       {editMode && (
         <TouchableOpacity onPress={() => handleSelectItem(item.id)}>
-          <Text>{selectedItems.has(item.id) ? '🔘' : '⚪️'}</Text>
+          <Text>{selectedItems.has(item.id) ? '🔘  ' : '⚪️  '}</Text>
         </TouchableOpacity>
       )}
       <Text style={[styles.categoryText, styles.menuItemText]}>{item.category}</Text>

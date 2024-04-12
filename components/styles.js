@@ -217,13 +217,13 @@ export default StyleSheet.create({
       marginBottom: 5,
     },
     input: {
-      "backgroundColor": "#FFFFFF90",
-      "borderRadius": 4,
-      "fontSize": 16,
-      "padding": 15,
-      "marginBottom": 20,
-      "borderWidth": 1,
-      "borderColor": "#ddd" 
+      backgroundColor: "#FFFFFF90",
+      borderRadius: 4,
+      fontSize: 16,
+      padding: 15,
+      marginBottom: 20,
+      borderWidth: 1,
+      borderColor: "#ddd" 
     },
     userpassTitle: {
       fontSize: 20,
@@ -236,7 +236,6 @@ export default StyleSheet.create({
       justifyContent: 'space-around',
       alignItems: 'flex-start',
       marginBottom: 30,
-      
     },
     settingsButton: {
       padding: 10,
@@ -323,6 +322,10 @@ export default StyleSheet.create({
       paddingVertical: 10,
       borderBottomWidth: 1,
       borderBottomColor: '#B7C9F2',
+      backgroundColor: 'white',
+      borderRadius: 10,
+      padding: 10,
+      margin: 5
     },
     categoryText: {
       flex: 3, 
@@ -335,7 +338,7 @@ export default StyleSheet.create({
     },
     menuItemText: {
       fontSize: 16,
-      color: 'white',
+      color: 'black',
     },
     actionRow: {
       flexDirection: 'row',
