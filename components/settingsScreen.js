@@ -31,9 +31,6 @@ const SettingsScreen = ({navigation}) => {
           <TouchableOpacity style={styles.settingsButton} onPress={goToAiConfig}>
             <Text style={styles.buttonText}>AI Configuration</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.settingsButton}>
-            <Text style={styles.buttonText}>AI Behavior</Text>
-          </TouchableOpacity>
           <TouchableOpacity style={styles.settingsButton} onPress={goTofaqScreen}>
             <Text style={styles.buttonText}>FAQ</Text>
           </TouchableOpacity>
